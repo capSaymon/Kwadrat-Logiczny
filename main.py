@@ -1,4 +1,4 @@
-from prompt_schema import Promptr_schema
+from send_prompt import Prompt
 
 def main ():
     sentence: str = 'Każdy samolot stoi na płycie lotniska'
@@ -13,8 +13,8 @@ def main ():
     - Nie zmieniaj żadnych słów w zdaniu.
     """
 
-    action = Promptr_schema(prompt, sentence)
-    print(action.run())
+    action = Prompt(prompt, sentence)
+    print(action.send())
 
 if __name__ == '__main__':
     main()

@@ -3,7 +3,7 @@ from ollama import ChatResponse
 
 class Prompt():
     model: str = 'KL_LLM'
-    
+
     def __init__(self, prompt, question):
         self.prompt = prompt
         self.question = question

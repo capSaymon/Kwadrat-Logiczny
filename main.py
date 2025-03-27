@@ -9,12 +9,12 @@ def main ():
     Wymagania:
     - Podaj podmiot w jednej linii i predykt w drugiej.
     - Podmiot: to osoba, rzecz lub zjawisko, o którym mówimy.
-    - Predykat: to część zdania, która mówi coś o podmiocie.
+    - Predykt: to część zdania, która mówi coś o podmiocie o jego stanie.
     - Nie zmieniaj żadnych słów w zdaniu.
     """
 
-    action = Prompt(prompt, sentence)
-    print(action.send())
+    subject_and_prediction = Prompt(prompt, sentence)
+    print(subject_and_prediction.send())
 
 if __name__ == '__main__':
     main()

@@ -8,7 +8,6 @@ class SubjectPrediction():
         subject, prediction = '', ''
 
         for word in mind.split():
-            print(word)
             if word == 'Podmiot:' or word == 'Predykt:':
                 continue
             if not subject:

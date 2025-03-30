@@ -5,9 +5,11 @@ def main ():
     sentence: str = 'Każdy samolot stoi na płycie lotniska'
 
     result_subject_and_prediction = SubjectPrediction(sentence)
-    print(result_subject_and_prediction.find())
+    find_sub_pre = result_subject_and_prediction.find()
+    subject, prediction = find_sub_pre
+    print(find_sub_pre)
 
-    find_categorical_sentences = CategoricalSentences(result_subject_and_prediction)
+    find_categorical_sentences = CategoricalSentences(subject, prediction)
     print(find_categorical_sentences.create())
     
 

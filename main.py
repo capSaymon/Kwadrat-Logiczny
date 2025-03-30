@@ -7,7 +7,8 @@ def main ():
     result_subject_and_prediction = SubjectPrediction(sentence)
     find_sub_pre = result_subject_and_prediction.find()
     subject, prediction = find_sub_pre
-    print(find_sub_pre)
+
+    subject, prediction = ('samolot', 'stoi')
 
     find_categorical_sentences = CategoricalSentences(subject, prediction)
     print(find_categorical_sentences.create())

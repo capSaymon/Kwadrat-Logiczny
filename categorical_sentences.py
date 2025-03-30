@@ -1,8 +1,9 @@
 from send_prompt import Prompt
 
 class CategoricalSentences():
-    def __init__(self, sentence):
-        self.sentence = sentence
+    def __init__(self, subject, prediction):
+        self.subject = subject
+        self.prediction = prediction
 
     def create(self) -> str:
         SaP: str = f'Każdy {self.subject} jest {self.prediction}'

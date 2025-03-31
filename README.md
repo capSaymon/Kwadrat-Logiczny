@@ -6,7 +6,7 @@ Użytkownik podaje zdanie dotyczące stanu np. 'Każdy samolot stoi na płycie l
 
 **Uwaga**
 
-Do preojketu został stworzony nowy model LLM: *KL_LLM* który znajduje się w pliku ./modifle. Został stworzony, aby skupić LLM na temat kwdartu logicnzego i gramatyki. Do projektu trzeba pobrać Olama, następnie llama3:1b, albo llama3:3b. Następnie w CMD w folderze programu wpisać **ollama create KL_LLM -f ./modefile**.
+Do projektu został stworzony nowy model LLM: *KL_LLM* który znajduje się w pliku ./modifle. Został stworzony, aby skupić LLM na temat kwdartu logicnzego i gramatyki. Do projektu trzeba pobrać Olama, następnie llama3:1b, albo llama3:3b. Następnie w CMD w folderze programu wpisać **ollama create KL_LLM -f ./modefile**.
 
 
 **Język**: Python

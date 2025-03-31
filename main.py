@@ -2,8 +2,9 @@ from subject_prediction import SubjectPrediction
 from categorical_sentences import CategoricalSentences
 
 def main ():
-    sentence: str = 'Każdy samolot stoi na płycie lotniska'
-    #sentence: str = 'Każdy telefon leży na stole'
+    #sentence = input('Write sentence: ')
+    sentence: str = 'Samolot stoi na płycie lotniska'
+    print(f'{sentence} \n\n')
 
     result_subject_and_prediction = SubjectPrediction(sentence)
     while True:
@@ -17,11 +18,7 @@ def main ():
 
     find_categorical_sentences = CategoricalSentences(subject, prediction, rest)
     SaP, SeP, SiP, SoP = find_categorical_sentences.create()
-    print(SaP)
-    print(SeP)
-    print(SiP)
-    print(SoP)
-    print()
+    print(f'\n{SaP} \n{SeP} \n{SiP} \n{SoP} \n')
 
 if __name__ == '__main__':
     main()

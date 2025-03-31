@@ -15,27 +15,40 @@ class CategoricalSentences():
         result: str = ''
 
         for sentence in sentences_list:
-            prompt: str = f"""
-            Dane wejściowe:  
-            Zdanie: "{sentence}"  
-            Zadanie: Popraw gramatykę podanego zdania.  
+            while True:
+                prompt: str = f"""
+                Dane wejściowe:  
+                Zdanie: "{sentence}"  
+                Zadanie: Popraw gramatykę podanego zdania.  
 
-            Wymagania:
-            - Zdanie musi zawierać wyraźny predykat (orzeczenie): {self.prediction}
-            - Jeśli zdanie jest poprawne, zwróć je bez zmian
-            - Popraw błędy gramatyczne i składniowe, jeśli występują
-            - Zachowaj znaczenie i styl oryginalnego zdania
-            - Nie zmieniaj słów na niepowiązane synonimy ani nie dodawaj nowych treści
-            - Możesz pominąć słowa: "jest", "nie jest" tylko wtedy, gdy ich usunięcie nie zmienia poprawności i jasności zdania
-            - Możesz dodać słowo "są" jeżeli jest to konieczne 
+                Wymagania:
+                - Zdanie musi zawierać wyraźny predykat (orzeczenie): {self.prediction}
+                - Jeśli zdanie jest poprawne, zwróć je bez zmian
+                - Popraw błędy gramatyczne i składniowe, jeśli występują
+                - Zachowaj znaczenie i styl oryginalnego zdania
+                - Nie zmieniaj słów na niepowiązane synonimy ani nie dodawaj nowych treści
+                - Możesz pominąć słowa: "jest", "nie jest" tylko wtedy, gdy ich usunięcie nie zmienia poprawności i jasności zdania
+                - Możesz dodać słowo "są" jeżeli jest to konieczne 
 
-            Oczekiwany format odpowiedzi:
-            - Poprawione zdanie w tej samej strukturze, ale poprawne i naturalnie brzmiące
-            """
+                Oczekiwany format odpowiedzi:
+                - Poprawione zdanie w tej samej strukturze, ale poprawne i naturalnie brzmiące
+                """
 
-            grammar = Prompt(prompt, sentence)
-            corrected_grammar = grammar.send()
-            result += corrected_grammar
+                grammar = Prompt(prompt, sentence)
+                corrected_grammar = grammar.send()
+
+                print(corrected_grammar)
+                answear: str = input('Accept or Reject: ')
+                if answear.lower() == 'accept':
+                    result += corrected_grammar
+                    break
+                elif answear.lower() == 'reject':
+                    print()
+                else:
+                    print('Wrong input')
+                    result_list: list[str] = result.split('.')
+                    result_list.pop(-1)
+                    return result_list 
             
         result_list: list[str] = result.split('.')
         result_list.pop(-1)

@@ -16,8 +16,7 @@ def main ():
     rest: str = sentence[prediction_index:]
 
     find_categorical_sentences = CategoricalSentences(subject, prediction, rest)
-    result = find_categorical_sentences.create()
-    SaP, SeP, SiP, SoP = result
+    SaP, SeP, SiP, SoP = find_categorical_sentences.create()
     print(SaP)
     print(SeP)
     print(SiP)

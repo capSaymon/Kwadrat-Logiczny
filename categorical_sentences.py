@@ -6,7 +6,7 @@ class CategoricalSentences():
         self.prediction = prediction
         self.rest = rest
 
-    def create(self) -> str:
+    def create(self) -> list[str]:
         SaP: str = f'Każdy {self.subject} jest {self.prediction} {self.rest}'
         SeP: str = f'Żaden {self.subject} nie jest {self.prediction} {self.rest}'
         SiP: str = f'Niektóre {self.subject} {self.prediction} {self.rest}'
@@ -35,6 +35,8 @@ class CategoricalSentences():
 
             grammar = Prompt(prompt, sentence)
             corrected_grammar = grammar.send()
-            result += corrected_grammar + ', '
-
-        return result
+            result += corrected_grammar
+            
+        result_list: list[str] = result.split('.')
+        result_list.pop(-1)
+        return result_list

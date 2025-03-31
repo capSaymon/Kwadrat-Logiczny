@@ -1,5 +1,5 @@
-from subject_prediction import SubjectPrediction
-from categorical_sentences import CategoricalSentences
+from backend.subject_prediction import SubjectPrediction
+from backend.categorical_sentences import CategoricalSentences
 
 def main ():
     #sentence = input('Write sentence: ')
@@ -10,7 +10,9 @@ def main ():
     while True:
         find_sub_pre = result_subject_and_prediction.find()
         subject, prediction = find_sub_pre
-        if prediction in sentence and subject in sentence:
+        subject = subject.lower()
+        prediction = prediction.lower()
+        if prediction in sentence.lower() and subject in sentence.lower():
             break
 
     prediction_index = sentence.find(prediction) + len(prediction) + 1

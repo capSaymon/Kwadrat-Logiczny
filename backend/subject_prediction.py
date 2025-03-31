@@ -1,4 +1,4 @@
-from send_prompt import Prompt
+from backend.send_prompt import Prompt
 
 class SubjectPrediction():
     def __init__(self, sentence):

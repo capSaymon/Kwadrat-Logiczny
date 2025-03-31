@@ -1,4 +1,4 @@
-from send_prompt import Prompt
+from backend.send_prompt import Prompt
 
 class CategoricalSentences():
     def __init__(self, subject, prediction, rest):

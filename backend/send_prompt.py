@@ -4,9 +4,8 @@ from ollama import ChatResponse
 class Prompt():
     model: str = 'KL_LLM'
 
-    def __init__(self, prompt, question):
+    def __init__(self, prompt):
         self.prompt = prompt
-        self.question = question
 
     def send(self) -> str:
         response: ChatResponse = chat(self.model, messages=[{

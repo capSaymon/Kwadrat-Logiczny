@@ -14,15 +14,18 @@ class InformationPrompt():
         - Wierzchołek O to zdanie szczegółowo-przeczące (np. „Niektóre X nie są Y”).
 
         Między tymi wierzchołkami zachodzą relacje logiczne:
-
+        
         - Implikacja:  
         - A implikuje I  
         - E implikuje O  
+
         - Przeciwieństwo:
         - A i E nie mogą być jednocześnie prawdziwe, ale mogą być jednocześnie fałszywe
+
         - Sprzeczność: 
         - A i O nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe  
         - E i I - analogicznie
+
         - Podprzeciwieństwo: 
         - I i O nie mogą być jednocześnie fałszywe, ale mogą być jednocześnie prawdziwe
         """

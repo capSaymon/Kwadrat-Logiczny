@@ -1,0 +1,9 @@
+Question:
+
+Zdanie E: Żaden samolot nie stoi na płycie lotniska.
+
+podaj zdanie A
+
+
+Answear: 
+Zdanie A: Samoloty stoją na płycie lotniska.

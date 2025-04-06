@@ -1,8 +1,9 @@
-from backend.subject_prediction import SubjectPrediction
-from backend.categorical_sentences import CategoricalSentences
+from backend.information import InformationPrompt
 
 def main ():
-    pass
+    information_prompt = InformationPrompt()
+    result = information_prompt.send()
+    print(result)
 
 if __name__ == '__main__':
     main()

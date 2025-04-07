@@ -1,9 +1,9 @@
 Question:
+Zdanie A: Wszystkie samoloty stoją na płycie lotniska.
 
-Zdanie E: Żaden samolot nie stoi na płycie lotniska.
+Answear:
+Oto reszta zdań:
 
-podaj zdanie A
-
-
-Answear: 
-Zdanie A: Samoloty stoją na płycie lotniska.
+- Zdanie E: Żadne samoloty nie stoją na płycie lotniska.
+- Zdanie I: Niektóre samoloty stoją na płycie lotniska.
+- Zdanie O: Niektóre samoloty nie stoją na płycie lotniska.

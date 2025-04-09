@@ -4,7 +4,7 @@ Program wspomaga analizę logiczną poprzez generowanie zdań dla brakujących w
 
 Opis działania
 ---
-Użytkownik wprowadza jedno zdanie, które stanowi punkt wyjściowy (wierzchołek lewy górny wierzchołek kwadratu). Na tej podstawie program formułuje prompt zawierający:
+Użytkownik wprowadza jedno zdanie, które stanowi punkt wyjściowy (lewy górny wierzchołek kwadratu). Na tej podstawie program formułuje prompt zawierający:
 
 - schemat budowy wierzchołków kwadratu
 

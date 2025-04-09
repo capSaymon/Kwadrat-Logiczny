@@ -17,7 +17,7 @@ def main ():
             if 'Answear:' in question:
                 print(f'File {base_name} allready have answear')
                 break
-            print(question,'\n\n', outcome)
+            print(question,'\n\n',outcome)
 
             while True:
                 action = input('Reject or Accept (r/a): ')

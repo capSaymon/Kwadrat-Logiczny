@@ -1,26 +1,38 @@
-from backend.subject_prediction import SubjectPrediction
-from backend.categorical_sentences import CategoricalSentences
+from backend.sentences import SentencesPrompt
+import os
+
+QUESTIONS_PATH = r'G:\Kwadrat Logiczny\Kwadrat-Logiczny\questions'
 
 def main ():
-    #sentence = input('Write sentence: ')
-    sentence: str = 'Samolot stoi na płycie lotniska'
-    print(f'{sentence} \n\n')
+    for file_name in os.listdir(QUESTIONS_PATH):
+        if not file_name.endswith('.txt'):
+            continue
+        base_name = os.path.splitext(file_name)[0]
+        print(f'\nFile: {base_name}')
 
-    result_subject_and_prediction = SubjectPrediction(sentence)
-    while True:
-        find_sub_pre = result_subject_and_prediction.find()
-        subject, prediction = find_sub_pre
-        subject = subject.lower()
-        prediction = prediction.lower()
-        if prediction in sentence.lower() and subject in sentence.lower():
-            break
+        run = True
+        while run:
+            task = SentencesPrompt(base_name)
+            question, outcome = task.send()
+            if 'Answear:' in question:
+                print(f'File {base_name} allready have answear')
+                break
+            print(question,'\n\n',outcome)
 
-    prediction_index = sentence.find(prediction) + len(prediction) + 1
-    rest: str = sentence[prediction_index:]
+            while True:
+                action = input('Reject or Accept (r/a): ')
+                if action == 'a':
+                    print('Accept and save answear \n')
+                    task.save(outcome)
+                    run = False
+                    break
+                elif action == 'r':
+                    print('Reject and not save answear\n')
+                    break
+                else:
+                    print('Error. Try again')
+        print('\n','-'*50,'\n')
 
-    find_categorical_sentences = CategoricalSentences(subject, prediction, rest)
-    SaP, SeP, SiP, SoP = find_categorical_sentences.create()
-    print(f'\n{SaP} \n{SeP} \n{SiP} \n{SoP} \n')
 
 if __name__ == '__main__':
     main()

@@ -1,9 +1,14 @@
-from backend.sentences import SentencesPrompt
+from LLAMA.sentences import SentencesPrompt
 import os
 
-QUESTIONS_PATH = r'G:\Kwadrat Logiczny\Kwadrat-Logiczny\questions'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
 
 def main ():
+    if not os.path.isdir(QUESTIONS_PATH):
+        print(f'Folder "questions" nie istnieje w: {QUESTIONS_PATH}')
+        return
+    
     for file_name in os.listdir(QUESTIONS_PATH):
         if not file_name.endswith('.txt'):
             continue

@@ -46,7 +46,7 @@ class SentencesPrompt():
         Zdanie O: Niektóre komputery nie są podłączone do Internetu.
 
         #Zadanie
-        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej. Bierz pod uwagę tylko te zasady:
+        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej. Nie opisuj. Bierz pod uwagę tylko te zasady:
         Przykład 3:
         
         """
@@ -59,4 +59,4 @@ class SentencesPrompt():
     
     def save(self, answear):
         with open(f'G:\Kwadrat Logiczny\Kwadrat-Logiczny\questions\{self.file_name}.txt', 'a', encoding='utf-8') as file:
-            file.write('\nAnswear:\n'+answear)
+            file.write('\nLLAMA \nAnswear:\n'+answear)

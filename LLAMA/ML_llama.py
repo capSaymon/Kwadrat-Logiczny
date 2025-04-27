@@ -1,35 +1,24 @@
-import openai
+from LLAMA.send_prompt import Prompt
+from prompt_sentence import prompt
+
 import os
 
-from prompt_sentence import prompt
-from dotenv import load_dotenv
-
-class gpt():
+class llama():
     def __init__(self, file_name):
         self.file_name = file_name
 
-    def result(self):
-        load_dotenv()
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Dokończ przykład"},
-                {"role": "user", "content": prompt}
-            ]
-        )
-
+    def result(self):        
         file_path = self.search_path()
         with open(file_path, 'r', encoding='utf-8') as file:
             task = file.read()
 
-        return task, (response['choices'][0]['message']['content'])
+        outcome = Prompt(f'{prompt} \n\n {task}').send()
+        return task, outcome
     
     def save(self, answear):
         file_path = self.search_path()
         with open(file_path, 'a', encoding='utf-8') as file:
-            file.write('\nOPENAI \nAnswear:\n'+answear)
+            file.write('\nLLAMA \nAnswear:\n'+answear)
 
     def search_path(self):
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,8 +30,8 @@ class gpt():
         play = True
         while play:
             question, outcome = self.result()
-            if 'OPENAI' in question:
-                print(f'File {self.file_name} allready have answear for openai')
+            if 'LLAMA' in question:
+                print(f'File {self.file_name} allready have answear for llama')
                 break
             print(question,'\n\n',outcome)
 

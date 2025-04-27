@@ -1,4 +1,4 @@
-from LLAMA.sentences import SentencesPrompt
+from LLAMA.ML_llama import llama
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -15,27 +15,8 @@ def main ():
         base_name = os.path.splitext(file_name)[0]
         print(f'\nFile: {base_name}')
 
-        run = True
-        while run:
-            task = SentencesPrompt(base_name)
-            question, outcome = task.send()
-            if 'Answear:' in question:
-                print(f'File {base_name} allready have answear')
-                break
-            print(question,'\n\n',outcome)
-
-            while True:
-                action = input('Reject or Accept (r/a): ')
-                if action == 'a':
-                    print('Accept and save answear \n')
-                    task.save(outcome)
-                    run = False
-                    break
-                elif action == 'r':
-                    print('Reject and not save answear\n')
-                    break
-                else:
-                    print('Error. Try again')
+        llama_instance = llama(base_name)
+        llama_instance.run()
         print('\n','-'*50,'\n')
 
 

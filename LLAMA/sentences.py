@@ -1,4 +1,4 @@
-from backend.send_prompt import Prompt
+from LLAMA.send_prompt import Prompt
 
 class SentencesPrompt():
     def __init__(self, file_name):

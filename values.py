@@ -1,3 +1,9 @@
+#path to questions file
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
+
+#few-shots prompt
 prompt: str = f"""
         Kwadrat logiczny ma cztery wierzchołki oznaczone A, E, I oraz O
 

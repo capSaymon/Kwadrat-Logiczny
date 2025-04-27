@@ -1,13 +1,14 @@
 from LLAMA.ML_llama import llama
+from OPENAI.ML_openai import gpt, run_gpt
+from values import QUESTIONS_PATH
+
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
-
+###@run_gpt
 def main ():
     if not os.path.isdir(QUESTIONS_PATH):
         print(f'Folder "questions" nie istnieje w: {QUESTIONS_PATH}')
-        return
+        return None
     
     for file_name in os.listdir(QUESTIONS_PATH):
         if not file_name.endswith('.txt'):
@@ -18,7 +19,6 @@ def main ():
         llama_instance = llama(base_name)
         llama_instance.run()
         print('\n','-'*50,'\n')
-
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,5 @@
 from LLAMA.send_prompt import Prompt
-from prompt_sentence import prompt
+from values import prompt
 
 import os
 

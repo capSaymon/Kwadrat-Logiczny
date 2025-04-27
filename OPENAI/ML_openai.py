@@ -1,30 +1,19 @@
-import openai
-import os
+from OPENAI.send_prompt import Prompt
+from values import prompt, QUESTIONS_PATH
 
-from prompt_sentence import prompt
-from dotenv import load_dotenv
+import os
 
 class gpt():
     def __init__(self, file_name):
         self.file_name = file_name
 
     def result(self):
-        load_dotenv()
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Dokończ przykład"},
-                {"role": "user", "content": prompt}
-            ]
-        )
-
         file_path = self.search_path()
         with open(file_path, 'r', encoding='utf-8') as file:
             task = file.read()
-
-        return task, (response['choices'][0]['message']['content'])
+            
+        outcome = Prompt(f'{prompt} \n\n {task}').send()
+        return task, outcome
     
     def save(self, answear):
         file_path = self.search_path()
@@ -58,3 +47,17 @@ class gpt():
                     break
                 else:
                     print('Error. Try again')
+
+def run_gpt(fun):
+    def new():
+        fun()
+        for file_name in os.listdir(QUESTIONS_PATH):
+            if not file_name.endswith('.txt'):
+                continue
+            base_name = os.path.splitext(file_name)[0]
+            print(f'\nFile: {base_name}')
+
+            openai_instance = gpt(base_name)
+            openai_instance.run()
+            print('\n','-'*50,'\n')
+    return new

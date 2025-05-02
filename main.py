@@ -1,9 +1,12 @@
+import os
+
 from LLAMA.ML_llama import llama
 from OPENAI.ML_openai import gpt, run_gpt
 from values import QUESTIONS_PATH
+from HYDE.RAG import run_CHROMA, rag
 
-import os
 
+###@run_CHROMA
 ###@run_gpt
 def main ():
     if not os.path.isdir(QUESTIONS_PATH):

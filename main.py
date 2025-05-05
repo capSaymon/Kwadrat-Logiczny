@@ -3,14 +3,15 @@ import os
 from LLAMA.ML_llama import llama
 from OPENAI.ML_openai import gpt, run_gpt
 from values import QUESTIONS_PATH
-from HYDE.RAG import run_CHROMA, rag
+from HYDE.RAG import CHROMA, run_RAG
 
 
-###@run_CHROMA
+#@CHROMA
+@run_RAG
 ###@run_gpt
 def main ():
     if not os.path.isdir(QUESTIONS_PATH):
-        print(f'Folder "questions" nie istnieje w: {QUESTIONS_PATH}')
+        print(f'Folder "questions" does not exist: {QUESTIONS_PATH}')
         return None
     
     for file_name in os.listdir(QUESTIONS_PATH):

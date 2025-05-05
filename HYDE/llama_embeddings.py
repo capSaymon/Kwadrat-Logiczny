@@ -4,7 +4,7 @@ import os
 from langchain.embeddings.base import Embeddings
 from llama_cpp import Llama
 from typing import List
-from hyde_values import MODEL_PATH
+from HYDE.hyde_values import MODEL_PATH
 
 class LlamaEmbeddings(Embeddings):
     def __init__(self, model_path: str = MODEL_PATH):

@@ -9,6 +9,7 @@ from HYDE.create_chroma import Run_chroma
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.send_prompt import Prompt
+from values import QUESTIONS_PATH
 
 
 class rag():
@@ -31,6 +32,8 @@ class rag():
         context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
         prompt_template = ChatPromptTemplate.from_template(PROMPT_SENTENCE)
         prompt = prompt_template.format(context=context_text, question=task)
+    #LOOK FOR PROMPT
+        print(f'\n\n\n{prompt}\n\n\n\n')
         outcome = Prompt(prompt).send()
 
         return task, outcome
@@ -69,10 +72,21 @@ class rag():
                 else:
                     print('Error. Try again')
 
-    
-
-def run_CHROMA(fun):
+def CHROMA(fun):
     def new():
-        fun()
         generate = Run_chroma()
+    return new
+
+def run_RAG(fun):
+    def new():
+        #fun()
+        for file_name in os.listdir(QUESTIONS_PATH):
+            if not file_name.endswith('.txt'):
+                continue
+            base_name = os.path.splitext(file_name)[0]
+            print(f'\nFile: {base_name}')
+
+            rag_instance = rag(base_name)
+            rag_instance.run()
+            print('\n','-'*50,'\n')
     return new

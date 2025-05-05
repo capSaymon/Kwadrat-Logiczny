@@ -6,8 +6,8 @@ from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain.schema import Document
-from llama_embeddings import LlamaEmbeddings
-from hyde_values import DATA_PATH, CHROMA_PATH
+from HYDE.llama_embeddings import LlamaEmbeddings
+from HYDE.hyde_values import DATA_PATH, CHROMA_PATH
 
 
 class Run_chroma():
@@ -22,11 +22,11 @@ class Run_chroma():
 
 
     def load_documents(self):
-        loader = DirectoryLoader(DATA_PATH, glob="*.md", loader_cls=TextLoader)
+        loader = DirectoryLoader(DATA_PATH, glob="*.md", loader_cls=lambda path: TextLoader(path, encoding="utf-8"))
         documents = loader.load()
         return documents
 
-    def split_text(documents: list[Document]):
+    def split_text(self, documents: list[Document]):
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=300,
             chunk_overlap=100,

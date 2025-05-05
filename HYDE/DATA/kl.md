@@ -117,3 +117,69 @@ A: Wszystkie planety krążą wokół Słońca.
 E: Żadne planety nie krążą wokół Słońca.
 I: Niektóre planety krążą wokół Słońca.
 O: Niektóre planety nie krążą wokół Słońca.
+
+Przykład:
+A: Wszystkie samochody stoją na parkingu.
+E: Żaden samochód nie stoi na parkingu.
+I: Niektóre samochody stoją na parkingu.
+O: Niektóre samochody nie stoją na parkingu.
+
+Przykład:
+A: Wszystkie psy szczekają.
+E: Żadne psy nie szczekają.
+I: Niektóre psy szczekają.
+O: Niektóre psy nie szczekają.
+
+Przykład:
+A: Wszystkie owoce są słodkie.
+E: Żadne owoce nie są słodkie.
+I: Niektóre owoce są słodkie.
+O: Niektóre owoce nie są słodkie.
+
+Przykład:
+A: Wszystkie komputery mają klawiaturę.
+E: Żadne komputery nie mają klawiatury.
+I: Niektóre komputery mają klawiaturę.
+O: Niektóre komputery nie mają klawiatury.
+
+Przykład:
+A: Wszystkie biblioteki mają książki.
+E: Żadne biblioteki nie mają książek.
+I: Niektóre biblioteki mają książki.
+O: Niektóre biblioteki nie mają książek.
+
+Przykład:
+A: Wszystkie rowery mają dzwonki.
+E: Żadne rowery nie mają dzwonków.
+I: Niektóre rowery mają dzwonki.
+O: Niektóre rowery nie mają dzwonków.
+
+Przykład:
+A: Wszystkie okna są zamknięte.
+E: Żadne okna nie są zamknięte.
+I: Niektóre okna są zamknięte.
+O: Niektóre okna nie są zamknięte.
+
+Przykład:
+A: Wszystkie zwierzęta żyją w lesie.
+E: Żadne zwierzęta nie żyją w lesie.
+I: Niektóre zwierzęta żyją w lesie.
+O: Niektóre zwierzęta nie żyją w lesie.
+
+Przykład:
+A: Wszystkie jabłka są zielone.
+E: Żadne jabłka nie są zielone.
+I: Niektóre jabłka są zielone.
+O: Niektóre jabłka nie są zielone.
+
+Przykład:
+A: Wszystkie uczelnie mają bibliotekę.
+E: Żadne uczelnie nie mają biblioteki.
+I: Niektóre uczelnie mają bibliotekę.
+O: Niektóre uczelnie nie mają biblioteki.
+
+Przykład:
+A: Wszystkie psy biegają po parku.
+E: Żadne psy nie biegają po parku.
+I: Niektóre psy biegają po parku.
+O: Niektóre psy nie biegają po parku.

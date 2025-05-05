@@ -1,38 +1,28 @@
-from backend.sentences import SentencesPrompt
 import os
 
-QUESTIONS_PATH = r'G:\Kwadrat Logiczny\Kwadrat-Logiczny\questions'
+from LLAMA.ML_llama import llama
+from OPENAI.ML_openai import run_gpt
+from values import QUESTIONS_PATH
+from HYDE.RAG import CHROMA, run_RAG
 
+
+#@CHROMA
+@run_RAG
+###@run_gpt
 def main ():
+    if not os.path.isdir(QUESTIONS_PATH):
+        print(f'Folder "questions" does not exist: {QUESTIONS_PATH}')
+        return None
+    
     for file_name in os.listdir(QUESTIONS_PATH):
         if not file_name.endswith('.txt'):
             continue
         base_name = os.path.splitext(file_name)[0]
         print(f'\nFile: {base_name}')
 
-        run = True
-        while run:
-            task = SentencesPrompt(base_name)
-            question, outcome = task.send()
-            if 'Answear:' in question:
-                print(f'File {base_name} allready have answear')
-                break
-            print(question,'\n\n',outcome)
-
-            while True:
-                action = input('Reject or Accept (r/a): ')
-                if action == 'a':
-                    print('Accept and save answear \n')
-                    task.save(outcome)
-                    run = False
-                    break
-                elif action == 'r':
-                    print('Reject and not save answear\n')
-                    break
-                else:
-                    print('Error. Try again')
+        llama_instance = llama(base_name)
+        llama_instance.run()
         print('\n','-'*50,'\n')
-
 
 if __name__ == '__main__':
     main()

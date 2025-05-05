@@ -2,7 +2,7 @@ from ollama import chat
 from ollama import ChatResponse
 
 class Prompt():
-    model: str = 'llama3.2:3b'
+    model: str = 'llama3.2:1b'
 
     def __init__(self, prompt):
         self.prompt = prompt

@@ -1,12 +1,10 @@
-from backend.send_prompt import Prompt
+#path to questions file
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
 
-class SentencesPrompt():
-    def __init__(self, file_name):
-        self.file_name = file_name
-
-    def send(self):
-        #few-shot
-        prompt: str = f"""
+#few-shots prompt
+prompt: str = f"""
         Kwadrat logiczny ma cztery wierzchołki oznaczone A, E, I oraz O
 
         - Wierzchołek A to zdanie ogólno-twierdzące (np. „Wszystkie X są Y”)
@@ -46,17 +44,7 @@ class SentencesPrompt():
         Zdanie O: Niektóre komputery nie są podłączone do Internetu.
 
         #Zadanie
-        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej. Bierz pod uwagę tylko te zasady:
+        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej. Nie opisuj. Bierz pod uwagę tylko te zasady:
         Przykład 3:
         
         """
-
-        with open(f'G:\Kwadrat Logiczny\Kwadrat-Logiczny\questions\{self.file_name}.txt', 'r', encoding='utf-8') as file:
-            task = file.read()
-
-        result = Prompt(f'{prompt} \n\n {task}').send()
-        return task, result
-    
-    def save(self, answear):
-        with open(f'G:\Kwadrat Logiczny\Kwadrat-Logiczny\questions\{self.file_name}.txt', 'a', encoding='utf-8') as file:
-            file.write('\nAnswear:\n'+answear)

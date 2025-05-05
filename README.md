@@ -19,10 +19,12 @@ Technologia
 ---
 ***Język:*** [Python](https://www.python.org/)
 
+
 ***Środowisko LLM:***
 - [Ollama](https://ollama.com/)
 
 - [OpenAI](https://openai.com/)
+
 
 ***Modele LLM:***
 
@@ -40,3 +42,4 @@ Technologia
 LLM
 ---
 W projekcie wykorzystywane są środowiska Ollama oraz OpenAI. Z OpenAI można korzystać, dodając swój klucz API w pliku **.env**, oraz odkomentowując dekorator, który umożliwia integrację z OpenAI. Domyślnie ustawione jest środowisko Llama. W plikach question przechowywane jest zdanie A, a wyniki promptu z danego modelu LLM można zapisać w plikach wynikowych.
+

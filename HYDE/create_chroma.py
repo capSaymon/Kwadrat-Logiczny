@@ -6,8 +6,8 @@ from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain.schema import Document
-from HYDE.llama_embeddings import LlamaEmbeddings
-from HYDE.hyde_values import DATA_PATH, CHROMA_PATH
+from HyDE.llama_embeddings import LlamaEmbeddings
+from HyDE.hyde_values import DATA_PATH, CHROMA_PATH
 
 
 class Run_chroma():

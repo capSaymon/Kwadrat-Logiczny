@@ -183,3 +183,183 @@ A: Wszystkie psy biegają po parku.
 E: Żadne psy nie biegają po parku.
 I: Niektóre psy biegają po parku.
 O: Niektóre psy nie biegają po parku.
+
+Przykład:
+A: Wszystkie bagaże są załadowane do samolotu.
+E: Żadne bagaże nie są załadowane do samolotu.
+I: Niektóre bagaże są załadowane do samolotu.
+O: Niektóre bagaże nie są załadowane do samolotu.
+
+Przykład:
+A: Wszystkie loty są opóźnione.
+E: Żadne loty nie są opóźnione.
+I: Niektóre loty są opóźnione.
+O: Niektóre loty nie są opóźnione.
+
+Przykład:
+A: Wszystkie pasażery czekają przy bramce.
+E: Żadni pasażerowie nie czekają przy bramce.
+I: Niektórzy pasażerowie czekają przy bramce.
+O: Niektórzy pasażerowie nie czekają przy bramce.
+
+Przykład:
+A: Wszystkie terminale są otwarte.
+E: Żadne terminale nie są otwarte.
+I: Niektóre terminale są otwarte.
+O: Niektóre terminale nie są otwarte.
+
+Przykład:
+A: Wszystkie samoloty mają włączone silniki.
+E: Żadne samoloty nie mają włączonych silników.
+I: Niektóre samoloty mają włączone silniki.
+O: Niektóre samoloty nie mają włączonych silników.
+
+Przykład:
+A: Wszystkie kontrolery pracują na wieży.
+E: Żadni kontrolerzy nie pracują na wieży.
+I: Niektórzy kontrolerzy pracują na wieży.
+O: Niektórzy kontrolerzy nie pracują na wieży.
+
+Przykład:
+A: Wszystkie walizki są na taśmie bagażowej.
+E: Żadne walizki nie są na taśmie bagażowej.
+I: Niektóre walizki są na taśmie bagażowej.
+O: Niektóre walizki nie są na taśmie bagażowej.
+
+Przykład:
+A: Wszystkie lotniska mają pas startowy.
+E: Żadne lotniska nie mają pasa startowego.
+I: Niektóre lotniska mają pas startowy.
+O: Niektóre lotniska nie mają pasa startowego.
+
+Przykład:
+A: Wszystkie hangary są zamknięte.
+E: Żadne hangary nie są zamknięte.
+I: Niektóre hangary są zamknięte.
+O: Niektóre hangary nie są zamknięte.
+
+Przykład:
+A: Wszystkie loty zostały odwołane.
+E: Żadne loty nie zostały odwołane.
+I: Niektóre loty zostały odwołane.
+O: Niektóre loty nie zostały odwołane.
+
+Przykład:
+A: Wszystkie samoloty są zatankowane.
+E: Żadne samoloty nie są zatankowane.
+I: Niektóre samoloty są zatankowane.
+O: Niektóre samoloty nie są zatankowane.
+
+Przykład:
+A: Wszystkie autobusy lotniskowe odjechały.
+E: Żadne autobusy lotniskowe nie odjechały.
+I: Niektóre autobusy lotniskowe odjechały.
+O: Niektóre autobusy lotniskowe nie odjechały.
+
+Przykład:
+A: Wszystkie bramki są zamknięte.
+E: Żadne bramki nie są zamknięte.
+I: Niektóre bramki są zamknięte.
+O: Niektóre bramki nie są zamknięte.
+
+Przykład:
+A: Wszystkie samoloty odlatują na czas.
+E: Żadne samoloty nie odlatują na czas.
+I: Niektóre samoloty odlatują na czas.
+O: Niektóre samoloty nie odlatują na czas.
+
+Przykład:
+A: Wszystkie lotniska są międzynarodowe.
+E: Żadne lotniska nie są międzynarodowe.
+I: Niektóre lotniska są międzynarodowe.
+O: Niektóre lotniska nie są międzynarodowe.
+
+Przykład:
+A: Wszystkie stewardessy są w samolocie.
+E: Żadne stewardessy nie są w samolocie.
+I: Niektóre stewardessy są w samolocie.
+O: Niektóre stewardessy nie są w samolocie.
+
+Przykład:
+A: Wszystkie bagaże zostały odebrane.
+E: Żadne bagaże nie zostały odebrane.
+I: Niektóre bagaże zostały odebrane.
+O: Niektóre bagaże nie zostały odebrane.
+
+Przykład:
+A: Wszystkie samoloty lecą na południe.
+E: Żadne samoloty nie lecą na południe.
+I: Niektóre samoloty lecą na południe.
+O: Niektóre samoloty nie lecą na południe.
+
+Przykład:
+A: Wszystkie bilety zostały sprzedane.
+E: Żadne bilety nie zostały sprzedane.
+I: Niektóre bilety zostały sprzedane.
+O: Niektóre bilety nie zostały sprzedane.
+
+Przykład:
+A: Wszystkie schody ruchome działają.
+E: Żadne schody ruchome nie działają.
+I: Niektóre schody ruchome działają.
+O: Niektóre schody ruchome nie działają.
+
+Przykład:
+A: Wszystkie wózki bagażowe są dostępne.
+E: Żadne wózki bagażowe nie są dostępne.
+I: Niektóre wózki bagażowe są dostępne.
+O: Niektóre wózki bagażowe nie są dostępne.
+
+Przykład:
+A: Wszystkie pasażery siedzą w samolocie.
+E: Żadni pasażerowie nie siedzą w samolocie.
+I: Niektórzy pasażerowie siedzą w samolocie.
+O: Niektórzy pasażerowie nie siedzą w samolocie.
+
+Przykład:
+A: Wszystkie loty międzynarodowe startują z Terminalu 2.
+E: Żadne loty międzynarodowe nie startują z Terminalu 2.
+I: Niektóre loty międzynarodowe startują z Terminalu 2.
+O: Niektóre loty międzynarodowe nie startują z Terminalu 2.
+
+Przykład:
+A: Wszystkie lotniska mają kontrolę paszportową.
+E: Żadne lotniska nie mają kontroli paszportowej.
+I: Niektóre lotniska mają kontrolę paszportową.
+O: Niektóre lotniska nie mają kontroli paszportowej.
+
+Przykład:
+A: Wszystkie lotniska mają wieżę kontrolną.
+E: Żadne lotniska nie mają wieży kontrolnej.
+I: Niektóre lotniska mają wieżę kontrolną.
+O: Niektóre lotniska nie mają wieży kontrolnej.
+
+Przykład:
+A: Wszystkie samoloty stoją w hangarze.
+E: Żadne samoloty nie stoją w hangarze.
+I: Niektóre samoloty stoją w hangarze.
+O: Niektóre samoloty nie stoją w hangarze.
+
+Przykład:
+A: Wszystkie samoloty zostały umyte.
+E: Żadne samoloty nie zostały umyte.
+I: Niektóre samoloty zostały umyte.
+O: Niektóre samoloty nie zostały umyte.
+
+Przykład:
+A: Wszystkie loty krajowe odlatują z Terminalu 1.
+E: Żadne loty krajowe nie odlatują z Terminalu 1.
+I: Niektóre loty krajowe odlatują z Terminalu 1.
+O: Niektóre loty krajowe nie odlatują z Terminalu 1.
+
+Przykład:
+A: Wszystkie check-iny są zamknięte.
+E: Żadne check-iny nie są zamknięte.
+I: Niektóre check-iny są zamknięte.
+O: Niektóre check-iny nie są zamknięte.
+
+Przykład:
+A: Wszystkie samoloty stoją na stanowisku odprawy.
+E: Żadne samoloty nie stoją na stanowisku odprawy.
+I: Niektóre samoloty stoją na stanowisku odprawy.
+O: Niektóre samoloty nie stoją na stanowisku odprawy.

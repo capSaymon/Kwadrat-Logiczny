@@ -3,9 +3,9 @@ import sys
 
 from langchain_community.vectorstores import Chroma
 from langchain.prompts import ChatPromptTemplate
-from HYDE.llama_embeddings import LlamaEmbeddings
-from HYDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE
-from HYDE.create_chroma import Run_chroma
+from HyDE.llama_embeddings import LlamaEmbeddings
+from HyDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE
+from HyDE.create_chroma import Run_chroma
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.send_prompt import Prompt

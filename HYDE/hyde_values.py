@@ -20,3 +20,11 @@ Odpowiedz na pytanie bazując na tych kontekstach:
 
 Odpoweidz bazując na podanych kontekstach tego jedngo zdania: {question} Znajdź reszte zdań.
 """
+
+#embed prompt
+PROMPT_EMBED: str = """
+    #Zadanie
+        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej.
+        Nie opisuj. Utwórz kolejne zdania typu E, I oraz O. Bierz pod uwagę tylko te zasady:
+
+"""

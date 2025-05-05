@@ -1,7 +1,7 @@
 import os
 
 from LLAMA.ML_llama import llama
-from OPENAI.ML_openai import gpt, run_gpt
+from OPENAI.ML_openai import run_gpt
 from values import QUESTIONS_PATH
 from HYDE.RAG import CHROMA, run_RAG
 

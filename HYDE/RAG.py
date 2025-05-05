@@ -21,7 +21,7 @@ class rag():
         with open(file_path, 'r', encoding='utf-8') as file:
             task = file.read()
 
-        llama_embeddings = LlamaEmbeddings()
+        llama_embeddings = LlamaEmbeddings(task)
         db = Chroma(persist_directory=CHROMA_PATH, embedding_function=llama_embeddings)
 
         results = db.similarity_search_with_relevance_scores(task, k=2)

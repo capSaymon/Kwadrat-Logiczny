@@ -8,10 +8,9 @@ from HyDE.hyde_values import MODEL_PATH, PROMPT_EMBED
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.send_prompt import Prompt
-from values import prompt
 
 class LlamaEmbeddings(Embeddings):
-    def __init__(self, task, model_path: str = MODEL_PATH):
+    def __init__(self, task: str ="", model_path: str = MODEL_PATH):
         self.llm = Llama(model_path=MODEL_PATH, embedding=True)
         self.task = task
 
@@ -19,7 +18,8 @@ class LlamaEmbeddings(Embeddings):
         return [self.llm.embed(txt) for txt in texts]
 
     def embed_query(self, text: str) -> List[float]:
-        prompt_sentence: str = prompt + self.task
-        #prompt_sentence: str = PROMPT_EMBED + self.task
-        text = Prompt(prompt_sentence).send()
+        if self.task:
+            prompt_sentence: str = PROMPT_EMBED + self.task
+            text = Prompt(prompt_sentence).send()
+            print(f'\n\n\n\n {text} \n\n\n\n')
         return self.llm.embed(text)

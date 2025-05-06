@@ -4,7 +4,7 @@ import sys
 from langchain_community.vectorstores import Chroma
 from langchain.prompts import ChatPromptTemplate
 from HyDE.llama_embeddings import LlamaEmbeddings
-from HyDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE
+from HyDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE, SQUEARE_LOGIC
 from HyDE.create_chroma import Run_chroma
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -30,7 +30,7 @@ class rag():
             return
 
         context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
-        prompt_template = ChatPromptTemplate.from_template(PROMPT_SENTENCE)
+        prompt_template = ChatPromptTemplate.from_template(SQUEARE_LOGIC + PROMPT_SENTENCE)
         prompt = prompt_template.format(context=context_text, question=task)
     #LOOK FOR PROMPT
         print(f'\n\n\n{prompt}\n\n\n\n')
@@ -79,7 +79,6 @@ def CHROMA(fun):
 
 def run_RAG(fun):
     def new():
-        #fun()
         for file_name in os.listdir(QUESTIONS_PATH):
             if not file_name.endswith('.txt'):
                 continue
@@ -89,4 +88,6 @@ def run_RAG(fun):
             rag_instance = rag(base_name)
             rag_instance.run()
             print('\n','-'*50,'\n')
+            
+        fun()
     return new

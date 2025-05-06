@@ -185,181 +185,421 @@ I: Niektóre psy biegają po parku.
 O: Niektóre psy nie biegają po parku.
 
 Przykład:
-A: Wszystkie bagaże są załadowane do samolotu.
-E: Żadne bagaże nie są załadowane do samolotu.
-I: Niektóre bagaże są załadowane do samolotu.
-O: Niektóre bagaże nie są załadowane do samolotu.
+A: Wszystkie kwiaty pachną.
+E: Żadne kwiaty nie pachną.
+I: Niektóre kwiaty pachną.
+O: Niektóre kwiaty nie pachną.
 
 Przykład:
-A: Wszystkie loty są opóźnione.
-E: Żadne loty nie są opóźnione.
-I: Niektóre loty są opóźnione.
-O: Niektóre loty nie są opóźnione.
+A: Wszystkie krzesła są drewniane.
+E: Żadne krzesła nie są drewniane.
+I: Niektóre krzesła są drewniane.
+O: Niektóre krzesła nie są drewniane.
 
 Przykład:
-A: Wszystkie pasażery czekają przy bramce.
-E: Żadni pasażerowie nie czekają przy bramce.
-I: Niektórzy pasażerowie czekają przy bramce.
-O: Niektórzy pasażerowie nie czekają przy bramce.
+A: Wszystkie łodzie są białe.
+E: Żadne łodzie nie są białe.
+I: Niektóre łodzie są białe.
+O: Niektóre łodzie nie są białe.
 
 Przykład:
-A: Wszystkie terminale są otwarte.
-E: Żadne terminale nie są otwarte.
-I: Niektóre terminale są otwarte.
-O: Niektóre terminale nie są otwarte.
+A: Wszystkie góry są wysokie.
+E: Żadne góry nie są wysokie.
+I: Niektóre góry są wysokie.
+O: Niektóre góry nie są wysokie.
 
 Przykład:
-A: Wszystkie samoloty mają włączone silniki.
-E: Żadne samoloty nie mają włączonych silników.
-I: Niektóre samoloty mają włączone silniki.
-O: Niektóre samoloty nie mają włączonych silników.
+A: Wszystkie ptaki latają.
+E: Żadne ptaki nie latają.
+I: Niektóre ptaki latają.
+O: Niektóre ptaki nie latają.
 
 Przykład:
-A: Wszystkie kontrolery pracują na wieży.
-E: Żadni kontrolerzy nie pracują na wieży.
-I: Niektórzy kontrolerzy pracują na wieży.
-O: Niektórzy kontrolerzy nie pracują na wieży.
+A: Wszystkie stoły są okrągłe.
+E: Żadne stoły nie są okrągłe.
+I: Niektóre stoły są okrągłe.
+O: Niektóre stoły nie są okrągłe.
 
 Przykład:
-A: Wszystkie walizki są na taśmie bagażowej.
-E: Żadne walizki nie są na taśmie bagażowej.
-I: Niektóre walizki są na taśmie bagażowej.
-O: Niektóre walizki nie są na taśmie bagażowej.
+A: Wszystkie zegary mają wskazówki.
+E: Żadne zegary nie mają wskazówek.
+I: Niektóre zegary mają wskazówki.
+O: Niektóre zegary nie mają wskazówek.
 
 Przykład:
-A: Wszystkie lotniska mają pas startowy.
-E: Żadne lotniska nie mają pasa startowego.
-I: Niektóre lotniska mają pas startowy.
-O: Niektóre lotniska nie mają pasa startowego.
+A: Wszystkie lampy świecą jasno.
+E: Żadne lampy nie świecą jasno.
+I: Niektóre lampy świecą jasno.
+O: Niektóre lampy nie świecą jasno.
 
 Przykład:
-A: Wszystkie hangary są zamknięte.
-E: Żadne hangary nie są zamknięte.
-I: Niektóre hangary są zamknięte.
-O: Niektóre hangary nie są zamknięte.
+A: Wszystkie dzieci chodzą do szkoły.
+E: Żadne dzieci nie chodzą do szkoły.
+I: Niektóre dzieci chodzą do szkoły.
+O: Niektóre dzieci nie chodzą do szkoły.
 
 Przykład:
-A: Wszystkie loty zostały odwołane.
-E: Żadne loty nie zostały odwołane.
-I: Niektóre loty zostały odwołane.
-O: Niektóre loty nie zostały odwołane.
+A: Wszystkie rowery mają dwa koła.
+E: Żadne rowery nie mają dwóch kół.
+I: Niektóre rowery mają dwa koła.
+O: Niektóre rowery nie mają dwóch kół.
 
 Przykład:
-A: Wszystkie samoloty są zatankowane.
-E: Żadne samoloty nie są zatankowane.
-I: Niektóre samoloty są zatankowane.
-O: Niektóre samoloty nie są zatankowane.
+A: Wszystkie długopisy piszą na niebiesko.
+E: Żadne długopisy nie piszą na niebiesko.
+I: Niektóre długopisy piszą na niebiesko.
+O: Niektóre długopisy nie piszą na niebiesko.
 
 Przykład:
-A: Wszystkie autobusy lotniskowe odjechały.
-E: Żadne autobusy lotniskowe nie odjechały.
-I: Niektóre autobusy lotniskowe odjechały.
-O: Niektóre autobusy lotniskowe nie odjechały.
+A: Wszystkie ptaki śpiewają rano.
+E: Żadne ptaki nie śpiewają rano.
+I: Niektóre ptaki śpiewają rano.
+O: Niektóre ptaki nie śpiewają rano.
 
 Przykład:
-A: Wszystkie bramki są zamknięte.
-E: Żadne bramki nie są zamknięte.
-I: Niektóre bramki są zamknięte.
-O: Niektóre bramki nie są zamknięte.
+A: Wszystkie łóżka są wygodne.
+E: Żadne łóżka nie są wygodne.
+I: Niektóre łóżka są wygodne.
+O: Niektóre łóżka nie są wygodne.
 
 Przykład:
-A: Wszystkie samoloty odlatują na czas.
-E: Żadne samoloty nie odlatują na czas.
-I: Niektóre samoloty odlatują na czas.
-O: Niektóre samoloty nie odlatują na czas.
+A: Wszystkie drogi prowadzą do Rzymu.
+E: Żadne drogi nie prowadzą do Rzymu.
+I: Niektóre drogi prowadzą do Rzymu.
+O: Niektóre drogi nie prowadzą do Rzymu.
 
 Przykład:
-A: Wszystkie lotniska są międzynarodowe.
-E: Żadne lotniska nie są międzynarodowe.
-I: Niektóre lotniska są międzynarodowe.
-O: Niektóre lotniska nie są międzynarodowe.
+A: Wszystkie krowy dają mleko.
+E: Żadne krowy nie dają mleka.
+I: Niektóre krowy dają mleko.
+O: Niektóre krowy nie dają mleka.
 
 Przykład:
-A: Wszystkie stewardessy są w samolocie.
-E: Żadne stewardessy nie są w samolocie.
-I: Niektóre stewardessy są w samolocie.
-O: Niektóre stewardessy nie są w samolocie.
+A: Wszystkie autobusy są czerwone.
+E: Żadne autobusy nie są czerwone.
+I: Niektóre autobusy są czerwone.
+O: Niektóre autobusy nie są czerwone.
 
 Przykład:
-A: Wszystkie bagaże zostały odebrane.
-E: Żadne bagaże nie zostały odebrane.
-I: Niektóre bagaże zostały odebrane.
-O: Niektóre bagaże nie zostały odebrane.
+A: Wszystkie komórki mają jądro.
+E: Żadne komórki nie mają jądra.
+I: Niektóre komórki mają jądro.
+O: Niektóre komórki nie mają jądra.
 
 Przykład:
-A: Wszystkie samoloty lecą na południe.
-E: Żadne samoloty nie lecą na południe.
-I: Niektóre samoloty lecą na południe.
-O: Niektóre samoloty nie lecą na południe.
+A: Wszystkie gwiazdy świecą w nocy.
+E: Żadne gwiazdy nie świecą w nocy.
+I: Niektóre gwiazdy świecą w nocy.
+O: Niektóre gwiazdy nie świecą w nocy.
 
 Przykład:
-A: Wszystkie bilety zostały sprzedane.
-E: Żadne bilety nie zostały sprzedane.
-I: Niektóre bilety zostały sprzedane.
-O: Niektóre bilety nie zostały sprzedane.
+A: Wszystkie auta są szybkie.
+E: Żadne auta nie są szybkie.
+I: Niektóre auta są szybkie.
+O: Niektóre auta nie są szybkie.
 
 Przykład:
-A: Wszystkie schody ruchome działają.
-E: Żadne schody ruchome nie działają.
-I: Niektóre schody ruchome działają.
-O: Niektóre schody ruchome nie działają.
+A: Wszystkie okna mają firanki.
+E: Żadne okna nie mają firanek.
+I: Niektóre okna mają firanki.
+O: Niektóre okna nie mają firanek.
 
 Przykład:
-A: Wszystkie wózki bagażowe są dostępne.
-E: Żadne wózki bagażowe nie są dostępne.
-I: Niektóre wózki bagażowe są dostępne.
-O: Niektóre wózki bagażowe nie są dostępne.
+A: Wszystkie zwierzęta mają ogony.
+E: Żadne zwierzęta nie mają ogonów.
+I: Niektóre zwierzęta mają ogony.
+O: Niektóre zwierzęta nie mają ogonów.
 
 Przykład:
-A: Wszystkie pasażery siedzą w samolocie.
-E: Żadni pasażerowie nie siedzą w samolocie.
-I: Niektórzy pasażerowie siedzą w samolocie.
-O: Niektórzy pasażerowie nie siedzą w samolocie.
+A: Wszystkie domy mają dachy.
+E: Żadne domy nie mają dachów.
+I: Niektóre domy mają dachy.
+O: Niektóre domy nie mają dachów.
 
 Przykład:
-A: Wszystkie loty międzynarodowe startują z Terminalu 2.
-E: Żadne loty międzynarodowe nie startują z Terminalu 2.
-I: Niektóre loty międzynarodowe startują z Terminalu 2.
-O: Niektóre loty międzynarodowe nie startują z Terminalu 2.
+A: Wszystkie liście są zielone.
+E: Żadne liście nie są zielone.
+I: Niektóre liście są zielone.
+O: Niektóre liście nie są zielone.
 
 Przykład:
-A: Wszystkie lotniska mają kontrolę paszportową.
-E: Żadne lotniska nie mają kontroli paszportowej.
-I: Niektóre lotniska mają kontrolę paszportową.
-O: Niektóre lotniska nie mają kontroli paszportowej.
+A: Wszystkie telefony mają ekrany dotykowe.
+E: Żadne telefony nie mają ekranów dotykowych.
+I: Niektóre telefony mają ekrany dotykowe.
+O: Niektóre telefony nie mają ekranów dotykowych.
 
 Przykład:
-A: Wszystkie lotniska mają wieżę kontrolną.
-E: Żadne lotniska nie mają wieży kontrolnej.
-I: Niektóre lotniska mają wieżę kontrolną.
-O: Niektóre lotniska nie mają wieży kontrolnej.
+A: Wszystkie windy działają.
+E: Żadne windy nie działają.
+I: Niektóre windy działają.
+O: Niektóre windy nie działają.
 
 Przykład:
-A: Wszystkie samoloty stoją w hangarze.
-E: Żadne samoloty nie stoją w hangarze.
-I: Niektóre samoloty stoją w hangarze.
-O: Niektóre samoloty nie stoją w hangarze.
+A: Wszystkie książki mają okładki.
+E: Żadne książki nie mają okładek.
+I: Niektóre książki mają okładki.
+O: Niektóre książki nie mają okładek.
 
 Przykład:
-A: Wszystkie samoloty zostały umyte.
-E: Żadne samoloty nie zostały umyte.
-I: Niektóre samoloty zostały umyte.
-O: Niektóre samoloty nie zostały umyte.
+A: Wszystkie komputery mają myszki.
+E: Żadne komputery nie mają myszek.
+I: Niektóre komputery mają myszki.
+O: Niektóre komputery nie mają myszek.
 
 Przykład:
-A: Wszystkie loty krajowe odlatują z Terminalu 1.
-E: Żadne loty krajowe nie odlatują z Terminalu 1.
-I: Niektóre loty krajowe odlatują z Terminalu 1.
-O: Niektóre loty krajowe nie odlatują z Terminalu 1.
+A: Wszystkie ryby pływają w wodzie.
+E: Żadne ryby nie pływają w wodzie.
+I: Niektóre ryby pływają w wodzie.
+O: Niektóre ryby nie pływają w wodzie.
 
 Przykład:
-A: Wszystkie check-iny są zamknięte.
-E: Żadne check-iny nie są zamknięte.
-I: Niektóre check-iny są zamknięte.
-O: Niektóre check-iny nie są zamknięte.
+A: Wszystkie ludzie lubią czekoladę.
+E: Żaden człowiek nie lubi czekolady.
+I: Niektórzy ludzie lubią czekoladę.
+O: Niektórzy ludzie nie lubią czekolady.
 
 Przykład:
-A: Wszystkie samoloty stoją na stanowisku odprawy.
-E: Żadne samoloty nie stoją na stanowisku odprawy.
-I: Niektóre samoloty stoją na stanowisku odprawy.
-O: Niektóre samoloty nie stoją na stanowisku odprawy.
+A: Wszystkie psy mają obroże.
+E: Żadne psy nie mają obroży.
+I: Niektóre psy mają obroże.
+O: Niektóre psy nie mają obroży.
+
+Przykład:
+A: Wszystkie auta mają klimatyzację.
+E: Żadne auta nie mają klimatyzacji.
+I: Niektóre auta mają klimatyzację.
+O: Niektóre auta nie mają klimatyzacji.
+
+Przykład:
+A: Wszystkie pokoje mają okna.
+E: Żadne pokoje nie mają okien.
+I: Niektóre pokoje mają okna.
+O: Niektóre pokoje nie mają okien.
+
+Przykład:
+A: Wszystkie restauracje serwują pizzę.
+E: Żadne restauracje nie serwują pizzy.
+I: Niektóre restauracje serwują pizzę.
+O: Niektóre restauracje nie serwują pizzy.
+
+Przykład:
+A: Wszystkie statki mają żagle.
+E: Żadne statki nie mają żagli.
+I: Niektóre statki mają żagle.
+O: Niektóre statki nie mają żagli.
+
+Przykład:
+A: Wszystkie kina wyświetlają filmy 3D.
+E: Żadne kina nie wyświetlają filmów 3D.
+I: Niektóre kina wyświetlają filmy 3D.
+O: Niektóre kina nie wyświetlają filmów 3D.
+
+Przykład:
+A: Wszystkie parki mają fontanny.
+E: Żadne parki nie mają fontann.
+I: Niektóre parki mają fontanny.
+O: Niektóre parki nie mają fontann.
+
+Przykład:
+A: Wszystkie psy mają smycze.
+E: Żadne psy nie mają smyczy.
+I: Niektóre psy mają smycze.
+O: Niektóre psy nie mają smyczy.
+
+Przykład:
+A: Wszystkie szkoły mają boiska.
+E: Żadne szkoły nie mają boisk.
+I: Niektóre szkoły mają boiska.
+O: Niektóre szkoły nie mają boisk.
+
+Przykład:
+A: Wszystkie budynki mają windy.
+E: Żadne budynki nie mają wind.
+I: Niektóre budynki mają windy.
+O: Niektóre budynki nie mają wind.
+
+Przykład:
+A: Wszystkie rowery mają hamulce.
+E: Żadne rowery nie mają hamulców.
+I: Niektóre rowery mają hamulce.
+O: Niektóre rowery nie mają hamulców.
+
+Przykład:
+A: Wszystkie samoloty mają skrzydła.
+E: Żadne samoloty nie mają skrzydeł.
+I: Niektóre samoloty mają skrzydła.
+O: Niektóre samoloty nie mają skrzydeł.
+
+Przykład:
+A: Wszystkie zegarki pokazują godzinę.
+E: Żadne zegarki nie pokazują godziny.
+I: Niektóre zegarki pokazują godzinę.
+O: Niektóre zegarki nie pokazują godziny.
+
+Przykład:
+A: Wszystkie koty mają wąsy.
+E: Żadne koty nie mają wąsów.
+I: Niektóre koty mają wąsy.
+O: Niektóre koty nie mają wąsów.
+
+Przykład:
+A: Wszystkie łodzie mają silniki.
+E: Żadne łodzie nie mają silników.
+I: Niektóre łodzie mają silniki.
+O: Niektóre łodzie nie mają silników.
+
+Przykład:
+A: Wszystkie domy mają drzwi.
+E: Żadne domy nie mają drzwi.
+I: Niektóre domy mają drzwi.
+O: Niektóre domy nie mają drzwi.
+
+Przykład:
+A: Wszystkie kwiaty rosną na wiosnę.
+E: Żadne kwiaty nie rosną na wiosnę.
+I: Niektóre kwiaty rosną na wiosnę.
+O: Niektóre kwiaty nie rosną na wiosnę.
+
+Przykład:
+A: Wszystkie zwierzęta mają serce.
+E: Żadne zwierzęta nie mają serca.
+I: Niektóre zwierzęta mają serce.
+O: Niektóre zwierzęta nie mają serca.
+
+Przykład:
+A: Wszystkie komputery mają ekran.
+E: Żadne komputery nie mają ekranu.
+I: Niektóre komputery mają ekran.
+O: Niektóre komputery nie mają ekranu.
+
+Przykład:
+A: Wszystkie jabłka są słodkie.
+E: Żadne jabłka nie są słodkie.
+I: Niektóre jabłka są słodkie.
+O: Niektóre jabłka nie są słodkie.
+
+Przykład:
+A: Wszystkie mosty są długie.
+E: Żadne mosty nie są długie.
+I: Niektóre mosty są długie.
+O: Niektóre mosty nie są długie.
+
+Przykład:
+A: Wszystkie drogi są asfaltowe.
+E: Żadne drogi nie są asfaltowe.
+I: Niektóre drogi są asfaltowe.
+O: Niektóre drogi nie są asfaltowe.
+
+Przykład:
+A: Wszystkie liście spadają jesienią.
+E: Żadne liście nie spadają jesienią.
+I: Niektóre liście spadają jesienią.
+O: Niektóre liście nie spadają jesienią.
+
+Przykład:
+A: Wszystkie książki są ciekawe.
+E: Żadne książki nie są ciekawe.
+I: Niektóre książki są ciekawe.
+O: Niektóre książki nie są ciekawe.
+
+Przykład:
+A: Wszystkie dzieci lubią bajki.
+E: Żadne dzieci nie lubią bajek.
+I: Niektóre dzieci lubią bajki.
+O: Niektóre dzieci nie lubią bajek.
+
+Przykład:
+A: Wszystkie psy lubią spacerować.
+E: Żadne psy nie lubią spacerować.
+I: Niektóre psy lubią spacerować.
+O: Niektóre psy nie lubią spacerować.
+
+Przykład:
+A: Wszystkie filmy mają napisy.
+E: Żadne filmy nie mają napisów.
+I: Niektóre filmy mają napisy.
+O: Niektóre filmy nie mają napisów.
+
+Przykład:
+A: Wszystkie okna są otwarte.
+E: Żadne okna nie są otwarte.
+I: Niektóre okna są otwarte.
+O: Niektóre okna nie są otwarte.
+
+Przykład:
+A: Wszystkie samoloty startują z lotniska.
+E: Żadne samoloty nie startują z lotniska.
+I: Niektóre samoloty startują z lotniska.
+O: Niektóre samoloty nie startują z lotniska.
+
+Przykład:
+A: Wszystkie komputery są szybkie.
+E: Żadne komputery nie są szybkie.
+I: Niektóre komputery są szybkie.
+O: Niektóre komputery nie są szybkie.
+
+Przykład:
+A: Wszystkie budynki są wysokie.
+E: Żadne budynki nie są wysokie.
+I: Niektóre budynki są wysokie.
+O: Niektóre budynki nie są wysokie.
+
+Przykład:
+A: Wszystkie szkoły uczą historii.
+E: Żadne szkoły nie uczą historii.
+I: Niektóre szkoły uczą historii.
+O: Niektóre szkoły nie uczą historii.
+
+Przykład:
+A: Wszystkie psy mają cztery łapy.
+E: Żadne psy nie mają czterech łap.
+I: Niektóre psy mają cztery łapy.
+O: Niektóre psy nie mają czterech łap.
+
+Przykład:
+A: Wszystkie ryby mają skrzela.
+E: Żadne ryby nie mają skrzeli.
+I: Niektóre ryby mają skrzela.
+O: Niektóre ryby nie mają skrzeli.
+
+Przykład:
+A: Wszystkie ptaki mają pióra.
+E: Żadne ptaki nie mają piór.
+I: Niektóre ptaki mają pióra.
+O: Niektóre ptaki nie mają piór.
+
+Przykład:
+A: Wszystkie auta są elektryczne.
+E: Żadne auta nie są elektryczne.
+I: Niektóre auta są elektryczne.
+O: Niektóre auta nie są elektryczne.
+
+Przykład:
+A: Wszystkie dzieci mają zabawki.
+E: Żadne dzieci nie mają zabawek.
+I: Niektóre dzieci mają zabawki.
+O: Niektóre dzieci nie mają zabawek.
+
+Przykład:
+A: Wszystkie okna mają firany.
+E: Żadne okna nie mają firan.
+I: Niektóre okna mają firany.
+O: Niektóre okna nie mają firan.
+
+Przykład:
+A: Wszystkie samochody mają koła.
+E: Żadne samochody nie mają kół.
+I: Niektóre samochody mają koła.
+O: Niektóre samochody nie mają kół.
+
+Przykład:
+A: Wszystkie szkoły mają bibliotekę.
+E: Żadne szkoły nie mają biblioteki.
+I: Niektóre szkoły mają bibliotekę.
+O: Niektóre szkoły nie mają biblioteki.
+
+Przykład:
+A: Wszystkie mosty są stalowe.
+E: Żadne mosty nie są stalowe.
+I: Niektóre mosty są stalowe.
+O: Niektóre mosty nie są stalowe.

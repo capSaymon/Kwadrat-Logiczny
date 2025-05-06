@@ -23,6 +23,20 @@ Odpoweidz bazując na podanych kontekstach tego jedngo zdania: {question} Znajd�
 
 #embed prompt
 PROMPT_EMBED: str = f"""
+        #Zadanie
+        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej.
+        Nie opisuj. Utwórz kolejne zdania typu E, I oraz O. Bierz pod uwagę tylko te zasady:
+
+        #wzór odpowiedzi:
+        Zdanie A: treść...
+        Zdanie E: treść...
+        Zdanie I: treść...
+        Zdanie O: treść...
+
+        """
+
+#SL description
+SQUEARE_LOGIC: str = f"""
         Kwadrat logiczny ma cztery wierzchołki oznaczone A, E, I oraz O
 
         - Wierzchołek A to zdanie ogólno-twierdzące (np. „Wszystkie X są Y”)
@@ -45,16 +59,5 @@ PROMPT_EMBED: str = f"""
 
         Podprzeciwieństwo: 
         - I i O nie mogą być jednocześnie fałszywe, ale mogą być jednocześnie prawdziwe
-        
-        
-        #Zadanie
-        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej.
-        Nie opisuj. Utwórz kolejne zdania typu E, I oraz O. Bierz pod uwagę tylko te zasady:
-
-        #wzór odpowiedzi:
-        Zdanie A: treść...
-        Zdanie E: treść...
-        Zdanie I: treść...
-        Zdanie O: treść...
 
         """

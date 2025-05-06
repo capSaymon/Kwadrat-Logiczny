@@ -4,7 +4,7 @@ import os
 from langchain.embeddings.base import Embeddings
 from llama_cpp import Llama
 from typing import List
-from HyDE.hyde_values import MODEL_PATH, PROMPT_EMBED
+from HyDE.hyde_values import MODEL_PATH, PROMPT_EMBED, SQUEARE_LOGIC
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.send_prompt import Prompt

@@ -5,46 +5,66 @@ QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
 
 #few-shots prompt
 prompt: str = f"""
-        Kwadrat logiczny ma cztery wierzchołki oznaczone A, E, I oraz O
+Kwadrat logiczny składa się z czterech zdań oznaczonych jako A, E, I, O:
 
-        - Wierzchołek A to zdanie ogólno-twierdzące (np. „Wszystkie X są Y”)
-        - Wierzchołek E to zdanie ogólno-przeczące (np. „Żadne X nie jest Y”)
-        - Wierzchołek I to zdanie szczegółowo-twierdzące (np. „Niektóre X są Y”)
-        - Wierzchołek O to zdanie szczegółowo-przeczące (np. „Niektóre X nie są Y”)
+- A: zdanie ogólno-twierdzące (np. „Wszystkie X są Y”)
+- E: zdanie ogólno-przeczące (np. „Żadne X nie jest Y”)
+- I: zdanie szczegółowo-twierdzące (np. „Niektóre X są Y”)
+- O: zdanie szczegółowo-przeczące (np. „Niektóre X nie są Y”)
 
-        Między tymi wierzchołkami zachodzą relacje logiczne:
-        
-        Implikacja:  
-        - A implikuje I jeśli A jest prawdziwe, to I jest prawdziwe
-        - E implikuje O jeśli E jest prawdziwe, to O jest prawdziwe
+Relacje logiczne między zdaniami:
 
-        Przeciwieństwo:
-        - A i E nie mogą być jednocześnie prawdziwe, ale mogą być jednocześnie fałszywe
+**Implikacja**:
+- A → I (jeśli A jest prawdziwe, to I też)
+- E → O (jeśli E jest prawdziwe, to O też)
 
-        Sprzeczność: 
-        - A i O nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe  
-        - E i I nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe
+**Przeciwieństwo**:
+- A i E nie mogą być jednocześnie prawdziwe, ale mogą być fałszywe
 
-        Podprzeciwieństwo: 
-        - I i O nie mogą być jednocześnie fałszywe, ale mogą być jednocześnie prawdziwe
-        
-        
-        #Przykłady
+**Sprzeczność**:
+- A i O nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe
+- E i I nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe
 
-        Przykład 1:
-        Zdanie A: Wszystkie ptaki mają skrzydła.
-        Zdanie E: Żadne ptaki nie mają skrzydeł.
-        Zdanie I: Niektóre ptaki mają skrzydła.
-        Zdanie O: Niektóre ptaki nie mają skrzydeł.
+**Podprzeciwieństwo**:
+- I i O nie mogą być jednocześnie fałszywe, ale mogą być prawdziwe
 
-        Przykład 2:
-        Zdanie A: Wszystkie komputery są podłączone do Internetu.
-        Zdanie E: Żaden komputer nie jest podłączony do Internetu.
-        Zdanie I: Niektóre komputery są podłączone do Internetu.
-        Zdanie O: Niektóre komputery nie są podłączone do Internetu.
+### Przykłady
 
-        #Zadanie
-        Teraz, rozwiąż ten kwadrat logiczny. Jest podane zdanie A podaj tylko reszte zdań i nic więcej. Nie opisuj. Bierz pod uwagę tylko te zasady:
-        Przykład 3:
-        
-        """
+Przykład 1:
+A: Wszystkie ptaki mają skrzydła.  
+E: Żadne ptaki nie mają skrzydeł.  
+I: Niektóre ptaki mają skrzydła.  
+O: Niektóre ptaki nie mają skrzydeł.
+
+Przykład 2:
+A: Wszystkie komputery są podłączone do Internetu.  
+E: Żaden komputer nie jest podłączony do Internetu.  
+I: Niektóre komputery są podłączone do Internetu.  
+O: Niektóre komputery nie są podłączone do Internetu.
+
+Przykład 3:
+A: Wszystkie samochody są elektryczne.  
+E: Żadne samochody nie są elektryczne.  
+I: Niektóre samochody są elektryczne.  
+O: Niektóre samochody nie są elektryczne.
+
+Przykład 4:
+A: Wszystkie książki w bibliotece są nowe.  
+E: Żadne książki w bibliotece nie są nowe.  
+I: Niektóre książki w bibliotece są nowe.  
+O: Niektóre książki w bibliotece nie są nowe.
+
+---
+
+### Zadanie
+
+Na podstawie podanego zdania A wygeneruj pozostałe trzy zdania (E, I, O), stosując się do podanych zasad logiki kwadratu.  
+Twoja odpowiedź **musi zawierać dokładnie cztery linijki**, w formacie:
+
+A: [podane zdanie]  
+E: ... 
+I: ...  
+O: ...
+
+Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
+"""

@@ -50,5 +50,5 @@ class llama():
     
     def run_test(self):
         question, outcome = self.result()
-        print(question,'\n\n',outcome)
+        print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
         return question, outcome

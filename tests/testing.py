@@ -72,10 +72,9 @@ def main():
             try:
                 test_response_format(outcome)
                 success += 1
+                save(f'result_{base_name}', outcome, i+1)
             except AssertionError:
                 pass
-
-            save(f'result_{base_name}', outcome, i+1)
         
         average_time = statistics.mean(times)
         min_time = min(times)

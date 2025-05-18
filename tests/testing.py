@@ -205,15 +205,3 @@ def create_report(report_file_name: str):
         line: str ='='*50
         print(line,data,line)
         save_data_to_csv(report_file_name, file_name[:-4], n, format_success, relation_success, first_aproach_successful, average_time, min_time, max_time)
-
-
-
-
-def main():
-    create_report('report_LLAMA')
-    #create_report('report_OPENAI')
-    #create_report('report_HyDE')
-    #create_report('report_GEMINI')
-
-if __name__ == '__main__':
-    main()

@@ -8,9 +8,9 @@ from GEMINI.ML_gemini import run_gemini
 
 
 #@CHROMA
-@run_RAG
+#@run_RAG
 #@run_gemini
-###@run_gpt
+#@run_gpt
 def main ():
     if not os.path.isdir(QUESTIONS_PATH):
         print(f'Folder "questions" does not exist: {QUESTIONS_PATH}')

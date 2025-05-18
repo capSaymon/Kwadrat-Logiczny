@@ -1,7 +1,6 @@
 import openai
 import os
 
-from values import prompt
 from dotenv import load_dotenv
 
 class Prompt():
@@ -16,7 +15,7 @@ class Prompt():
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Dokończ przykład"},
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": self.prompt}
             ]
         )
         return response['choices'][0]['message']['content']

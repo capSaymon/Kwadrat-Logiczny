@@ -100,8 +100,9 @@ def save(file_name: str, data: str, index: str, LLM: str =''):
 
 
 def save_data_to_csv(report_file_name, question, number_of_attempts, format_success, relation_success, first_aproach_successful, average_time, min_time, max_time):
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    QUESTIONS_PATH = os.path.join(BASE_DIR, 'tests')
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    QUESTIONS_PATH = os.path.join(BASE_DIR, 'reports')
+
     os.makedirs(QUESTIONS_PATH, exist_ok=True)
     file_path = os.path.join(QUESTIONS_PATH, f'{report_file_name}.csv')
     file_exists = os.path.isfile(file_path)
@@ -148,7 +149,7 @@ def run_GEMINI(base_name: str):
 
 
 
-def create_report(report_file_name: str = 'report_LLAMA'):
+def create_report(report_file_name: str):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
 
@@ -166,7 +167,7 @@ def create_report(report_file_name: str = 'report_LLAMA'):
         format_success: int = 0
         relation_success: int = 0
         first_aproach_successful: int = 0
-        n: int = 10
+        n: int = 1
         times = []
         
         for i in range(n):

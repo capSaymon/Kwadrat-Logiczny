@@ -148,7 +148,7 @@ def create_report(report_file_name: str = 'report_LLAMA'):
         format_success: int = 0
         relation_success: int = 0
         first_aproach_successful: int = 0
-        n: int = 100
+        n: int = 20
         times = []
         
         for i in range(n):
@@ -189,9 +189,9 @@ def create_report(report_file_name: str = 'report_LLAMA'):
 
 
 def main():
-    #create_report('report_LLAMA')
+    create_report('report_LLAMA')
     #create_report('report_OPENAI')
-    create_report('report_HyDE')
+    #create_report('report_HyDE')
 
 if __name__ == '__main__':
     main()

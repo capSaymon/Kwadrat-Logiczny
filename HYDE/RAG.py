@@ -4,7 +4,7 @@ import sys
 from langchain_community.vectorstores import Chroma
 from langchain.prompts import ChatPromptTemplate
 from HyDE.llama_embeddings import LlamaEmbeddings
-from HyDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE, SQUEARE_LOGIC
+from HyDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE
 from HyDE.create_chroma import Run_chroma
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -24,16 +24,16 @@ class rag():
         llama_embeddings = LlamaEmbeddings(task)
         db = Chroma(persist_directory=CHROMA_PATH, embedding_function=llama_embeddings)
 
-        results = db.similarity_search_with_relevance_scores(task, k=2)
+        results = db.similarity_search_with_relevance_scores(task, k=9)
         if len(results) == 0 or results[0][1] > 1:
             print(f"There is no matching sentences")
             return
 
         context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
-        prompt_template = ChatPromptTemplate.from_template(SQUEARE_LOGIC + PROMPT_SENTENCE)
+        prompt_template = ChatPromptTemplate.from_template(PROMPT_SENTENCE)
         prompt = prompt_template.format(context=context_text, question=task)
     #LOOK FOR PROMPT
-        print(f'\n\n\n{prompt}\n\n\n\n')
+        #print(f'\n\n\n{prompt}\n\n\n\n')
         outcome = Prompt(prompt).send()
 
         return task, outcome
@@ -71,6 +71,13 @@ class rag():
                     break
                 else:
                     print('Error. Try again')
+    
+    def run_test(self):
+        question, outcome = self.result()
+        print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
+        return question, outcome
+
+
 
 def CHROMA(fun):
     def new():

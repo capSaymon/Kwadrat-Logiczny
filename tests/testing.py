@@ -8,6 +8,7 @@ import statistics
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.ML_llama import llama
 from OPENAI.ML_openai import gpt
+from HyDE.RAG import rag
 
 
 def test_response_format(response: str):    
@@ -75,7 +76,7 @@ def contradicts_i_e(sentence_i: str, sentence_e: str) -> bool:
     return False
 
 
-def save(file_name: str, data: str, index: str):
+def save(file_name: str, data: str, index: str, LLM: str =''):
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     QUESTIONS_PATH = os.path.join(BASE_DIR, 'result_test')
     
@@ -84,7 +85,7 @@ def save(file_name: str, data: str, index: str):
 
     file_path = os.path.join(QUESTIONS_PATH, f'{file_name}.txt')
     with open(file_path, 'a', encoding='utf-8') as file:
-        file.write(f'Approach {index}\n{data}\n\n')
+        file.write(f'{LLM}\nApproach {index}\n{data}\n\n')
 
 
 def save_data_to_csv(report_file_name, question, number_of_attempts, format_success, relation_success, first_aproach_successful, average_time, min_time, max_time):
@@ -120,6 +121,15 @@ def run_OPENAI(base_name: str):
 
 
 
+def run_HyDE(base_name: str):
+    rag_instance = rag(base_name)
+    start_time = time.time()
+    question, outcome = rag_instance.run_test()
+    end_time = time.time()
+    return question, outcome, end_time, start_time
+
+
+
 def create_report(report_file_name: str = 'report_LLAMA'):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
@@ -138,14 +148,18 @@ def create_report(report_file_name: str = 'report_LLAMA'):
         format_success: int = 0
         relation_success: int = 0
         first_aproach_successful: int = 0
-        n: int = 30
+        n: int = 100
         times = []
         
         for i in range(n):
             if report_file_name == 'report_LLAMA':
                 question, outcome, end_time, start_time = run_LLAMA(base_name)
-            if report_file_name == 'report_OPENAI':
+            elif report_file_name == 'report_OPENAI':
                 question, outcome, end_time, start_time = run_OPENAI(base_name)
+            elif report_file_name == 'report_HyDE':
+                question, outcome, end_time, start_time = run_HyDE(base_name)
+            else:
+                print('there is no such llm report name')
 
             result_time = end_time - start_time
             times.append(result_time)
@@ -158,7 +172,7 @@ def create_report(report_file_name: str = 'report_LLAMA'):
                 
                     if not first_aproach_successful:
                         first_aproach_successful += i+1
-                    save(f'result_{base_name}', outcome, i+1)
+                    save(f'result_{base_name}', outcome, i+1, report_file_name[7:])
             except AssertionError:
                 pass
         
@@ -175,8 +189,9 @@ def create_report(report_file_name: str = 'report_LLAMA'):
 
 
 def main():
-    create_report('report_LLAMA')
+    #create_report('report_LLAMA')
     #create_report('report_OPENAI')
+    create_report('report_HyDE')
 
 if __name__ == '__main__':
     main()

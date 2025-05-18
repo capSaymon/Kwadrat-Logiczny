@@ -18,7 +18,7 @@ def data_result(file_name: str = ''):
     data = {metric: [] for metric in metrics}
 
     print('=' * 50)
-    print("Values for questions:\n")
+    print(f"{file_name}\nValues for questions:\n")
     for question, group in grouped:
         print(f"{question}")
         questions.append(question)
@@ -47,7 +47,7 @@ def data_result(file_name: str = ''):
 
     ax.set_xlabel('Question')
     ax.set_ylabel('Value')
-    ax.set_title('Metrics per Question (Sum/Mean)')
+    ax.set_title(f'{file_name}')
     ax.set_xticks(x)
     ax.set_xticklabels(questions, rotation=45, ha='right')
     ax.legend()
@@ -59,6 +59,7 @@ def data_result(file_name: str = ''):
 
 def main():
     data_result('report_LLAMA')
+    data_result('report_HyDE')
 
 if __name__ == '__main__':
     main()

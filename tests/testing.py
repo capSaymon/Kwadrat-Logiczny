@@ -3,12 +3,14 @@ import re
 import sys
 import csv
 import time
+import spacy
 import statistics
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.ML_llama import llama
 from OPENAI.ML_openai import gpt
 from HyDE.RAG import rag
+from GEMINI.ML_gemini import gemini
 
 
 def test_response_format(response: str):    
@@ -37,9 +39,14 @@ def test_raltion_between_sentences(question: str, response: str) -> bool:
 
     return (contradicts_a_o(apex_a, apex_o) and contradicts_i_e(apex_i, apex_e))
 
+nlp = spacy.load("pl_core_news_sm")
+
+def lemmatize(text: str) -> str:
+    doc = nlp(text)
+    return " ".join([token.lemma_ for token in doc])
 
 def normalize(text: str) -> str:
-    return text.strip().lower().rstrip(".").replace("ów", "").replace("y", "").replace("i", "").replace("a", "")
+    return lemmatize(text.strip().lower().rstrip("."))
 
 
 def contradicts_a_o(sentence_a: str, sentence_o: str) -> bool:
@@ -54,24 +61,28 @@ def contradicts_a_o(sentence_a: str, sentence_o: str) -> bool:
         subject_o = normalize(match_o.group(1))
         predicate_o = normalize(match_o.group(2))
 
-        return a_full == f"{subject_o} {predicate_o}"
-    
+        return f"{subject_o} {predicate_o}" in a_full or a_full in f"{subject_o} {predicate_o}"
+
     return False
 
 
 def contradicts_i_e(sentence_i: str, sentence_e: str) -> bool:
     pattern_i = r"Niektóre (.+?)(?:\.|$)"
-    pattern_e = r"Żadne (.+?) nie (.+?)(?:\.|$)"
+    pattern_e = r"Żaden (.+?) nie (.+?)(?:\.|$)"
 
     match_i = re.match(pattern_i, sentence_i.strip())
     match_e = re.match(pattern_e, sentence_e.strip())
+
+    if match_e is None:
+        pattern_e = r"Żadne (.+?) nie (.+?)(?:\.|$)"
+        match_e = re.match(pattern_e, sentence_e.strip())
 
     if match_i and match_e:
         i_full = normalize(match_i.group(1))
         subject_e = normalize(match_e.group(1))
         predicate_e = normalize(match_e.group(2))
 
-        return  i_full == f"{subject_e} {predicate_e}"
+        return f"{subject_e} {predicate_e}" in i_full or i_full in f"{subject_e} {predicate_e}"
 
     return False
 
@@ -120,11 +131,18 @@ def run_OPENAI(base_name: str):
     return question, outcome, end_time, start_time
 
 
-
 def run_HyDE(base_name: str):
     rag_instance = rag(base_name)
     start_time = time.time()
     question, outcome = rag_instance.run_test()
+    end_time = time.time()
+    return question, outcome, end_time, start_time
+
+
+def run_GEMINI(base_name: str):
+    gemini_instance = gemini(base_name)
+    start_time = time.time()
+    question, outcome = gemini_instance.run_test()
     end_time = time.time()
     return question, outcome, end_time, start_time
 
@@ -148,7 +166,7 @@ def create_report(report_file_name: str = 'report_LLAMA'):
         format_success: int = 0
         relation_success: int = 0
         first_aproach_successful: int = 0
-        n: int = 20
+        n: int = 10
         times = []
         
         for i in range(n):
@@ -158,6 +176,8 @@ def create_report(report_file_name: str = 'report_LLAMA'):
                 question, outcome, end_time, start_time = run_OPENAI(base_name)
             elif report_file_name == 'report_HyDE':
                 question, outcome, end_time, start_time = run_HyDE(base_name)
+            elif report_file_name == 'report_GEMINI':
+                question, outcome, end_time, start_time = run_GEMINI(base_name)
             else:
                 print('there is no such llm report name')
 
@@ -192,6 +212,7 @@ def main():
     create_report('report_LLAMA')
     #create_report('report_OPENAI')
     #create_report('report_HyDE')
+    #create_report('report_GEMINI')
 
 if __name__ == '__main__':
     main()

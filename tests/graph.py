@@ -60,6 +60,7 @@ def data_result(file_name: str = ''):
 def main():
     data_result('report_LLAMA')
     data_result('report_HyDE')
+    data_result('report_GEMINI')
 
 if __name__ == '__main__':
     main()

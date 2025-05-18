@@ -603,3 +603,555 @@ A: Wszystkie mosty są stalowe.
 E: Żadne mosty nie są stalowe.
 I: Niektóre mosty są stalowe.
 O: Niektóre mosty nie są stalowe.
+
+Przykład:
+A: Wszystkie ptaki mają skrzydła.
+E: Żaden ptak nie ma skrzydeł.
+I: Niektóre ptaki mają skrzydła.
+O: Niektóre ptaki nie mają skrzydeł.
+
+Przykład:
+A: Wszystkie psy są ssakami.
+E: Żaden pies nie jest ssakiem.
+I: Niektóre psy są ssakami.
+O: Niektóre psy nie są ssakami.
+
+Przykład:
+A: Wszystkie samochody mają koła.
+E: Żaden samochód nie ma kół.
+I: Niektóre samochody mają koła.
+O: Niektóre samochody nie mają kół.
+
+Przykład:
+A: Wszystkie kwiaty rosną na słońcu.
+E: Żaden kwiat nie rośnie na słońcu.
+I: Niektóre kwiaty rosną na słońcu.
+O: Niektóre kwiaty nie rosną na słońcu.
+
+Przykład:
+A: Wszyscy uczniowie uczą się matematyki.
+E: Żaden uczeń nie uczy się matematyki.
+I: Niektórzy uczniowie uczą się matematyki.
+O: Niektórzy uczniowie nie uczą się matematyki.
+
+Przykład:
+A: Wszystkie dzieci lubią lody.
+E: Żadne dziecko nie lubi lodów.
+I: Niektóre dzieci lubią lody.
+O: Niektóre dzieci nie lubią lodów.
+
+Przykład:
+A: Wszystkie ryby pływają w wodzie.
+E: Żadna ryba nie pływa w wodzie.
+I: Niektóre ryby pływają w wodzie.
+O: Niektóre ryby nie pływają w wodzie.
+
+Przykład:
+A: Wszystkie komputery potrzebują prądu.
+E: Żaden komputer nie potrzebuje prądu.
+I: Niektóre komputery potrzebują prądu.
+O: Niektóre komputery nie potrzebują prądu.
+
+Przykład:
+A: Wszystkie drzewa mają liście.
+E: Żadne drzewo nie ma liści.
+I: Niektóre drzewa mają liście.
+O: Niektóre drzewa nie mają liści.
+
+Przykład:
+A: Wszyscy nauczyciele pracują w szkole.
+E: Żaden nauczyciel nie pracuje w szkole.
+I: Niektórzy nauczyciele pracują w szkole.
+O: Niektórzy nauczyciele nie pracują w szkole.
+
+Przykład:
+A: Wszystkie zegary pokazują czas.
+E: Żaden zegar nie pokazuje czasu.
+I: Niektóre zegary pokazują czas.
+O: Niektóre zegary nie pokazują czasu.
+
+Przykład:
+A: Wszystkie książki mają strony.
+E: Żadna książka nie ma stron.
+I: Niektóre książki mają strony.
+O: Niektóre książki nie mają stron.
+
+Przykład:
+A: Wszystkie samoloty latają.
+E: Żaden samolot nie lata.
+I: Niektóre samoloty latają.
+O: Niektóre samoloty nie latają.
+
+Przykład:
+A: Wszystkie rowery mają pedały.
+E: Żaden rower nie ma pedałów.
+I: Niektóre rowery mają pedały.
+O: Niektóre rowery nie mają pedałów.
+
+Przykład:
+A: Wszystkie owoce są zdrowe.
+E: Żaden owoc nie jest zdrowy.
+I: Niektóre owoce są zdrowe.
+O: Niektóre owoce nie są zdrowe.
+
+Przykład:
+A: Wszystkie komórki potrzebują energii.
+E: Żadna komórka nie potrzebuje energii.
+I: Niektóre komórki potrzebują energii.
+O: Niektóre komórki nie potrzebują energii.
+
+Przykład:
+A: Wszyscy sportowcy trenują codziennie.
+E: Żaden sportowiec nie trenuje codziennie.
+I: Niektórzy sportowcy trenują codziennie.
+O: Niektórzy sportowcy nie trenują codziennie.
+
+Przykład:
+A: Wszystkie samochody spalają paliwo.
+E: Żaden samochód nie spala paliwa.
+I: Niektóre samochody spalają paliwo.
+O: Niektóre samochody nie spalają paliwa.
+
+Przykład:
+A: Wszystkie domy mają dachy.
+E: Żaden dom nie ma dachu.
+I: Niektóre domy mają dachy.
+O: Niektóre domy nie mają dachów.
+
+Przykład:
+A: Wszystkie żaby są płazami.
+E: Żadna żaba nie jest płazem.
+I: Niektóre żaby są płazami.
+O: Niektóre żaby nie są płazami.
+
+Przykład:
+A: Wszystkie komety mają ogony.
+E: Żadna kometa nie ma ogona.
+I: Niektóre komety mają ogony.
+O: Niektóre komety nie mają ogonów.
+
+Przykład:
+A: Wszyscy ludzie oddychają tlenem.
+E: Żaden człowiek nie oddycha tlenem.
+I: Niektórzy ludzie oddychają tlenem.
+O: Niektórzy ludzie nie oddychają tlenem.
+
+Przykład:
+A: Wszystkie koty miauczą.
+E: Żaden kot nie miauczy.
+I: Niektóre koty miauczą.
+O: Niektóre koty nie miauczą.
+
+Przykład:
+A: Wszystkie pociągi jeżdżą po torach.
+E: Żaden pociąg nie jeździ po torach.
+I: Niektóre pociągi jeżdżą po torach.
+O: Niektóre pociągi nie jeżdżą po torach.
+
+Przykład:
+A: Wszystkie lampy świecą.
+E: Żadna lampa nie świeci.
+I: Niektóre lampy świecą.
+O: Niektóre lampy nie świecą.
+
+Przykład:
+A: Wszystkie żarówki dają światło.
+E: Żadna żarówka nie daje światła.
+I: Niektóre żarówki dają światło.
+O: Niektóre żarówki nie dają światła.
+
+Przykład:
+A: Wszystkie telewizory mają ekran.
+E: Żaden telewizor nie ma ekranu.
+I: Niektóre telewizory mają ekran.
+O: Niektóre telewizory nie mają ekranu.
+
+Przykład:
+A: Wszystkie konie biegają.
+E: Żaden koń nie biega.
+I: Niektóre konie biegają.
+O: Niektóre konie nie biegają.
+
+Przykład:
+A: Wszystkie łodzie pływają po wodzie.
+E: Żadna łódź nie pływa po wodzie.
+I: Niektóre łodzie pływają po wodzie.
+O: Niektóre łodzie nie pływają po wodzie.
+
+Przykład:
+A: Wszystkie dzieci chodzą do szkoły.
+E: Żadne dziecko nie chodzi do szkoły.
+I: Niektóre dzieci chodzą do szkoły.
+O: Niektóre dzieci nie chodzą do szkoły.
+
+Przykład:
+A: Wszystkie kwadraty mają cztery boki.
+E: Żaden kwadrat nie ma czterech boków.
+I: Niektóre kwadraty mają cztery boki.
+O: Niektóre kwadraty nie mają czterech boków.
+
+Przykład:
+A: Wszystkie góry są wysokie.
+E: Żadna góra nie jest wysoka.
+I: Niektóre góry są wysokie.
+O: Niektóre góry nie są wysokie.
+
+Przykład:
+A: Wszystkie jabłka są owocami.
+E: Żadne jabłko nie jest owocem.
+I: Niektóre jabłka są owocami.
+O: Niektóre jabłka nie są owocami.
+
+Przykład:
+A: Wszystkie kwiaty pachną.
+E: Żaden kwiat nie pachnie.
+I: Niektóre kwiaty pachną.
+O: Niektóre kwiaty nie pachną.
+
+Przykład:
+A: Wszystkie monety są okrągłe.
+E: Żadna moneta nie jest okrągła.
+I: Niektóre monety są okrągłe.
+O: Niektóre monety nie są okrągłe.
+
+Przykład:
+A: Wszystkie książki są papierowe.
+E: Żadna książka nie jest papierowa.
+I: Niektóre książki są papierowe.
+O: Niektóre książki nie są papierowe.
+
+Przykład:
+A: Wszystkie balony unoszą się w powietrzu.
+E: Żaden balon nie unosi się w powietrzu.
+I: Niektóre balony unoszą się w powietrzu.
+O: Niektóre balony nie unoszą się w powietrzu.
+
+Przykład:
+A: Wszystkie motyle mają skrzydła.
+E: Żaden motyl nie ma skrzydeł.
+I: Niektóre motyle mają skrzydła.
+O: Niektóre motyle nie mają skrzydeł.
+
+Przykład:
+A: Wszystkie drzwi się otwierają.
+E: Żadne drzwi się nie otwierają.
+I: Niektóre drzwi się otwierają.
+O: Niektóre drzwi się nie otwierają.
+
+Przykład:
+A: Wszystkie cukierki są słodkie.
+E: Żaden cukierek nie jest słodki.
+I: Niektóre cukierki są słodkie.
+O: Niektóre cukierki nie są słodkie.
+
+Przykład:
+A: Wszystkie dźwięki są słyszalne.
+E: Żaden dźwięk nie jest słyszalny.
+I: Niektóre dźwięki są słyszalne.
+O: Niektóre dźwięki nie są słyszalne.
+
+Przykład:
+A: Wszystkie statki pływają po morzu.
+E: Żaden statek nie pływa po morzu.
+I: Niektóre statki pływają po morzu.
+O: Niektóre statki nie pływają po morzu.
+
+Przykład:
+A: Wszystkie misie śpią zimą.
+E: Żaden miś nie śpi zimą.
+I: Niektóre misie śpią zimą.
+O: Niektóre misie nie śpią zimą.
+
+Przykład:
+A: Wszystkie samice ssaków karmią młode mlekiem.
+E: Żadna samica ssaka nie karmi młodych mlekiem.
+I: Niektóre samice ssaków karmią młode mlekiem.
+O: Niektóre samice ssaków nie karmią młodych mlekiem.
+
+Przykład:
+A: Wszystkie gwiazdy świecą.
+E: Żadna gwiazda nie świeci.
+I: Niektóre gwiazdy świecą.
+O: Niektóre gwiazdy nie świecą.
+
+Przykład:
+A: Wszystkie planety krążą wokół słońca.
+E: Żadna planeta nie krąży wokół słońca.
+I: Niektóre planety krążą wokół słońca.
+O: Niektóre planety nie krążą wokół słońca.
+
+Przykład:
+A: Wszystkie lisy są ssakami.
+E: Żaden lis nie jest ssakiem.
+I: Niektóre lisy są ssakami.
+O: Niektóre lisy nie są ssakami.
+
+Przykład:
+A: Wszystkie okna są przezroczyste.
+E: Żadne okno nie jest przezroczyste.
+I: Niektóre okna są przezroczyste.
+O: Niektóre okna nie są przezroczyste.
+
+Przykład:
+A: Wszystkie stoły mają cztery nogi.
+E: Żaden stół nie ma czterech nóg.
+I: Niektóre stoły mają cztery nogi.
+O: Niektóre stoły nie mają czterech nóg.
+
+Przykład:
+A: Wszystkie owoce zawierają witaminy.
+E: Żaden owoc nie zawiera witamin.
+I: Niektóre owoce zawierają witaminy.
+O: Niektóre owoce nie zawierają witamin.
+
+Przykład:
+A: Wszystkie psy mają ogony.
+E: Żaden pies nie ma ogona.
+I: Niektóre psy mają ogony.
+O: Niektóre psy nie mają ogonów.
+
+Przykład:
+A: Wszystkie zegarki pokazują godzinę.
+E: Żaden zegarek nie pokazuje godziny.
+I: Niektóre zegarki pokazują godzinę.
+O: Niektóre zegarki nie pokazują godziny.
+
+Przykład:
+A: Wszystkie ludzie mają serca.
+E: Żaden człowiek nie ma serca.
+I: Niektórzy ludzie mają serca.
+O: Niektórzy ludzie nie mają serca.
+
+Przykład:
+A: Wszystkie pająki mają osiem nóg.
+E: Żaden pająk nie ma ośmiu nóg.
+I: Niektóre pająki mają osiem nóg.
+O: Niektóre pająki nie mają ośmiu nóg.
+
+Przykład:
+A: Wszystkie telefony mają ekran dotykowy.
+E: Żaden telefon nie ma ekranu dotykowego.
+I: Niektóre telefony mają ekran dotykowy.
+O: Niektóre telefony nie mają ekranu dotykowego.
+
+Przykład:
+A: Wszystkie długopisy piszą.
+E: Żaden długopis nie pisze.
+I: Niektóre długopisy piszą.
+O: Niektóre długopisy nie piszą.
+
+Przykład:
+A: Wszystkie noce są ciemne.
+E: Żadna noc nie jest ciemna.
+I: Niektóre noce są ciemne.
+O: Niektóre noce nie są ciemne.
+
+Przykład:
+A: Wszystkie liście spadają jesienią.
+E: Żaden liść nie spada jesienią.
+I: Niektóre liście spadają jesienią.
+O: Niektóre liście nie spadają jesienią.
+
+Przykład:
+A: Wszystkie zamki mają klucze.
+E: Żaden zamek nie ma klucza.
+I: Niektóre zamki mają klucze.
+O: Niektóre zamki nie mają kluczy.
+
+Przykład:
+A: Wszystkie gwiazdy są gorące.
+E: Żadna gwiazda nie jest gorąca.
+I: Niektóre gwiazdy są gorące.
+O: Niektóre gwiazdy nie są gorące.
+
+Przykład:
+A: Wszystkie dzieci lubią zabawki.
+E: Żadne dziecko nie lubi zabawek.
+I: Niektóre dzieci lubią zabawki.
+O: Niektóre dzieci nie lubią zabawek.
+
+Przykład:
+A: Wszystkie lwy są drapieżnikami.
+E: Żaden lew nie jest drapieżnikiem.
+I: Niektóre lwy są drapieżnikami.
+O: Niektóre lwy nie są drapieżnikami.
+
+Przykład:
+A: Wszystkie chmury unoszą się na niebie.
+E: Żadna chmura nie unosi się na niebie.
+I: Niektóre chmury unoszą się na niebie.
+O: Niektóre chmury nie unoszą się na niebie.
+
+Przykład:
+A: Wszystkie świece się palą.
+E: Żadna świeca się nie pali.
+I: Niektóre świece się palą.
+O: Niektóre świece się nie palą.
+
+Przykład:
+A: Wszystkie jabłka są jadalne.
+E: Żadne jabłko nie jest jadalne.
+I: Niektóre jabłka są jadalne.
+O: Niektóre jabłka nie są jadalne.
+
+Przykład:
+A: Wszystkie zmysły pomagają poznawać świat.
+E: Żaden zmysł nie pomaga poznawać świata.
+I: Niektóre zmysły pomagają poznawać świat.
+O: Niektóre zmysły nie pomagają poznawać świata.
+
+Przykład:
+A: Wszystkie budynki mają dach.
+E: Żaden budynek nie ma dachu.
+I: Niektóre budynki mają dach.
+O: Niektóre budynki nie mają dachu.
+
+Przykład:
+A: Wszystkie baterie magazynują energię.
+E: Żadna bateria nie magazynuje energii.
+I: Niektóre baterie magazynują energię.
+O: Niektóre baterie nie magazynują energii.
+
+Przykład:
+A: Wszystkie słowa mają znaczenie.
+E: Żadne słowo nie ma znaczenia.
+I: Niektóre słowa mają znaczenie.
+O: Niektóre słowa nie mają znaczenia.
+
+Przykład:
+A: Wszystkie pianina mają klawisze.
+E: Żadne pianino nie ma klawiszy.
+I: Niektóre pianina mają klawisze.
+O: Niektóre pianina nie mają klawiszy.
+
+Przykład:
+A: Wszystkie góry są wyższe niż pagórki.
+E: Żadna góra nie jest wyższa niż pagórek.
+I: Niektóre góry są wyższe niż pagórki.
+O: Niektóre góry nie są wyższe niż pagórki.
+
+Przykład:
+A: Wszystkie planety krążą wokół gwiazdy.
+E: Żadna planeta nie krąży wokół gwiazdy.
+I: Niektóre planety krążą wokół gwiazdy.
+O: Niektóre planety nie krążą wokół gwiazdy.
+
+Przykład:
+A: Wszystkie aparaty robią zdjęcia.
+E: Żaden aparat nie robi zdjęć.
+I: Niektóre aparaty robią zdjęcia.
+O: Niektóre aparaty nie robią zdjęć.
+
+Przykład:
+A: Wszystkie zegary działają na mechanizm.
+E: Żaden zegar nie działa na mechanizm.
+I: Niektóre zegary działają na mechanizm.
+O: Niektóre zegary nie działają na mechanizmie.
+
+Przykład:
+A: Wszystkie liście opadają jesienią.
+E: Żaden liść nie opada jesienią.
+I: Niektóre liście opadają jesienią.
+O: Niektóre liście nie opadają jesienią.
+
+Przykład:
+A: Wszystkie ściany są pionowe.
+E: Żadna ściana nie jest pionowa.
+I: Niektóre ściany są pionowe.
+O: Niektóre ściany nie są pionowe.
+
+Przykład:
+A: Wszystkie samochody mają kierownicę.
+E: Żaden samochód nie ma kierownicy.
+I: Niektóre samochody mają kierownicę.
+O: Niektóre samochody nie mają kierownicy.
+
+Przykład:
+A: Wszystkie klocki Lego się łączą.
+E: Żaden klocek Lego się nie łączy.
+I: Niektóre klocki Lego się łączą.
+O: Niektóre klocki Lego się nie łączą.
+
+Przykład:
+A: Wszystkie koty mają wąsy.
+E: Żaden kot nie ma wąsów.
+I: Niektóre koty mają wąsy.
+O: Niektóre koty nie mają wąsów.
+
+Przykład:
+A: Wszystkie wulkany mogą wybuchnąć.
+E: Żaden wulkan nie może wybuchnąć.
+I: Niektóre wulkany mogą wybuchnąć.
+O: Niektóre wulkany nie mogą wybuchnąć.
+
+Przykład:
+A: Wszystkie drzewa są zielone latem.
+E: Żadne drzewo nie jest zielone latem.
+I: Niektóre drzewa są zielone latem.
+O: Niektóre drzewa nie są zielone latem.
+
+Przykład:
+A: Wszystkie okulary poprawiają wzrok.
+E: Żadne okulary nie poprawiają wzroku.
+I: Niektóre okulary poprawiają wzrok.
+O: Niektóre okulary nie poprawiają wzroku.
+
+Przykład:
+A: Wszystkie zdjęcia pokazują obraz.
+E: Żadne zdjęcie nie pokazuje obrazu.
+I: Niektóre zdjęcia pokazują obraz.
+O: Niektóre zdjęcia nie pokazują obrazu.
+
+Przykład:
+A: Wszystkie drzwi prowadzą do wnętrza.
+E: Żadne drzwi nie prowadzą do wnętrza.
+I: Niektóre drzwi prowadzą do wnętrza.
+O: Niektóre drzwi nie prowadzą do wnętrza.
+
+Przykład:
+A: Wszystkie książki można przeczytać.
+E: Żadnej książki nie można przeczytać.
+I: Niektóre książki można przeczytać.
+O: Niektóre książki nie mogą być przeczytane.
+
+Przykład:
+A: Wszystkie rowery mają kierownicę.
+E: Żaden rower nie ma kierownicy.
+I: Niektóre rowery mają kierownicę.
+O: Niektóre rowery nie mają kierownicy.
+
+Przykład:
+A: Wszystkie osoby pracujące płacą podatki.
+E: Żadna osoba pracująca nie płaci podatków.
+I: Niektóre osoby pracujące płacą podatki.
+O: Niektóre osoby pracujące nie płacą podatków.
+
+Przykład:
+A: Wszystkie szkoły uczą pisania.
+E: Żadna szkoła nie uczy pisania.
+I: Niektóre szkoły uczą pisania.
+O: Niektóre szkoły nie uczą pisania.
+
+Przykład:
+A: Wszystkie rzeki płyną.
+E: Żadna rzeka nie płynie.
+I: Niektóre rzeki płyną.
+O: Niektóre rzeki nie płyną.
+
+Przykład:
+A: Wszystkie samoloty mają skrzydła.
+E: Żaden samolot nie ma skrzydeł.
+I: Niektóre samoloty mają skrzydła.
+O: Niektóre samoloty nie mają skrzydeł.
+
+Przykład:
+A: Wszystkie tkaniny można uszyć.
+E: Żadnej tkaniny nie można uszyć.
+I: Niektóre tkaniny można uszyć.
+O: Niektóre tkaniny nie mogą być uszyte.
+
+Przykład:
+A: Wszystkie budziki dzwonią rano.
+E: Żaden budzik nie dzwoni rano.
+I: Niektóre budziki dzwonią rano.
+O: Niektóre budziki nie dzwonią rano.

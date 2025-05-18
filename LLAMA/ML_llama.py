@@ -15,14 +15,14 @@ class llama():
         outcome = Prompt(f'{prompt} \n\n {task}').send()
         return task, outcome
     
-    def save(self, answear):
-        file_path = self.search_path()
+    def save(self, answear, addition = '\nLLAMA \nAnswear:\n', folder_name='questions'):
+        file_path = self.search_path(folder_name)
         with open(file_path, 'a', encoding='utf-8') as file:
-            file.write('\nLLAMA \nAnswear:\n'+answear)
+            file.write(addition + answear)
 
-    def search_path(self):
+    def search_path(self, folder_name='questions'):
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
+        QUESTIONS_PATH = os.path.join(BASE_DIR, folder_name)
         file_path = os.path.join(QUESTIONS_PATH, f'{self.file_name}.txt')
         return file_path
     
@@ -47,3 +47,8 @@ class llama():
                     break
                 else:
                     print('Error. Try again')
+    
+    def run_test(self):
+        question, outcome = self.result()
+        print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
+        return question, outcome

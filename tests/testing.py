@@ -144,6 +144,8 @@ def create_report(report_file_name: str = 'report_LLAMA'):
         for i in range(n):
             if report_file_name == 'report_LLAMA':
                 question, outcome, end_time, start_time = run_LLAMA(base_name)
+            if report_file_name == 'report_OPENAI':
+                question, outcome, end_time, start_time = run_OPENAI(base_name)
 
             result_time = end_time - start_time
             times.append(result_time)
@@ -174,6 +176,7 @@ def create_report(report_file_name: str = 'report_LLAMA'):
 
 def main():
     create_report('report_LLAMA')
+    #create_report('report_OPENAI')
 
 if __name__ == '__main__':
     main()

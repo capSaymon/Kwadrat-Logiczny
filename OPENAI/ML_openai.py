@@ -47,6 +47,11 @@ class gpt():
                     break
                 else:
                     print('Error. Try again')
+                    
+    def run_test(self):
+        question, outcome = self.result()
+        print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
+        return question, outcome
 
 def run_gpt(fun):
     def new():

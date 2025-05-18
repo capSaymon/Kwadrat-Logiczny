@@ -7,6 +7,7 @@ import statistics
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.ML_llama import llama
+from OPENAI.ML_openai import gpt
 
 
 def test_response_format(response: str):    
@@ -102,7 +103,24 @@ def save_data_to_csv(report_file_name, question, number_of_attempts, format_succ
 
 
 
-def main():
+def run_LLAMA(base_name: str):
+    llama_instance = llama(base_name)
+    start_time = time.time()
+    question, outcome = llama_instance.run_test()
+    end_time = time.time()
+    return question, outcome, end_time, start_time
+
+
+def run_OPENAI(base_name: str):
+    openai_instance = gpt(base_name)
+    start_time = time.time()
+    question, outcome = openai_instance.run_test()
+    end_time = time.time()
+    return question, outcome, end_time, start_time
+
+
+
+def create_report(report_file_name: str = 'report_LLAMA'):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
 
@@ -122,12 +140,11 @@ def main():
         first_aproach_successful: int = 0
         n: int = 30
         times = []
-        report_file_name="report_LLAMA"
+        
         for i in range(n):
-            llama_instance = llama(base_name)
-            start_time = time.time()
-            question, outcome = llama_instance.run_test()
-            end_time = time.time()
+            if report_file_name == 'report_LLAMA':
+                question, outcome, end_time, start_time = run_LLAMA(base_name)
+
             result_time = end_time - start_time
             times.append(result_time)
 
@@ -151,6 +168,12 @@ def main():
         line: str ='='*50
         print(line,data,line)
         save_data_to_csv(report_file_name, file_name[:-4], n, format_success, relation_success, first_aproach_successful, average_time, min_time, max_time)
+
+
+
+
+def main():
+    create_report('report_LLAMA')
 
 if __name__ == '__main__':
     main()

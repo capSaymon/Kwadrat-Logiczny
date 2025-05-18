@@ -15,7 +15,7 @@ def main():
 
             result = reports_name[choice-1]
             print(f'\n{result}\n')
-            chosen_report_test = test(result).run
+            test(result).run()
             break
 
         except IndexError:

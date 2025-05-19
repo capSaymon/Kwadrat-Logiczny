@@ -184,6 +184,8 @@ class test():
             report_file_name = report_file_name+'_zero_shot'
         elif self.prompt_technique == 1:
             report_file_name = report_file_name+'_one_shot'
+        elif self.prompt_technique == 3:
+            report_file_name = report_file_name+'_self_consistency'
 
         os.makedirs(QUESTIONS_PATH, exist_ok=True)
         file_path = os.path.join(QUESTIONS_PATH, f'{report_file_name}.csv')

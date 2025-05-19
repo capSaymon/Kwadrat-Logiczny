@@ -17,8 +17,8 @@ def main():
             name = reports_name[choice-1]
             print(f'\n{name}\n')
             print('-'*50)
-            technique = int(input("\n0: zero-shot\n1: one-shot\n2: few-shot\n\nSelect the prompt technique.\nChoice: "))
-            if technique not in [0, 1, 2]:
+            technique = int(input("\n0: zero-shot\n1: one-shot\n2: few-shot\n3: self-consistency\n\nSelect the prompt technique.\nChoice: "))
+            if technique not in [0, 1, 2, 3]:
                 raise ValueError
 
             print('-'*50)
@@ -33,7 +33,6 @@ def main():
             print('-'*50)
             choice = input("\nShow report of all tests? (y/n) ").strip().lower()[0]
             if choice == "y":
-                print(f'\n\n\nSTART TESTING\n\n\n')
                 results(name, technique).run()
             elif choice == "n":
                 pass

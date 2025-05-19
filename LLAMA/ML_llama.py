@@ -1,3 +1,4 @@
+from collections import Counter
 from LLAMA.send_prompt import Prompt
 from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots
 
@@ -19,6 +20,8 @@ class llama():
             outcome = Prompt(f'{prompt_one_shots} \n\n {task}').send()
         elif self.prompt_technique == 2:
             outcome = Prompt(f'{prompt_few_shots} \n\n {task}').send()
+        elif self.prompt_technique == 3:
+            outcome = self.self_consistency(task)
         else:
             return None, None
         return task, outcome
@@ -55,6 +58,16 @@ class llama():
                     break
                 else:
                     print('Error. Try again')
+
+    def self_consistency(self, task):
+        prompt_results = []
+        for _ in range(5):
+            result = Prompt(f'{prompt_few_shots} \n\n {task}').send()
+            prompt_results.append(result.strip())
+        
+        counts = Counter(prompt_results)
+        most_common_result, _ = counts.most_common(1)[0]
+        return most_common_result
     
     def run_test(self):
         question, outcome = self.result()

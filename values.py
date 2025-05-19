@@ -192,10 +192,17 @@ Zdanie A: "Wszystkie komputery są podłączone do internetu."
 
 Pomyśl krok po kroku:
 
-1. Znaczenie A: Jeśli coś jest komputerem, to jest podłączone do internetu.
-2. Zdanie E (przeciwieństwo do A): „Żadne komputery nie są podłączone do internetu.”
-3. Zdanie I (zgodne szczegółowe): „Niektóre komputery są podłączone do internetu.”
-4. Zdanie O (sprzeczność do A): „Niektóre komputery nie są podłączone do internetu.”
+1. Jakie jest znaczenie zdania A?
+- To zdanie mówi, że dla każdego obiektu, jeśli jest komputerem, to jest podłączony do internetu.
+
+2. Jaka jest logiczna sprzeczność? (zdanie E)
+- Zdanie E powinno zaprzeczać A. Czyli: istnieje przynajmniej jeden komputer, który nie jest podłączony do internetu.
+
+3. Jakie jest zdanie szczegółowe zgodne? (zdanie I)
+- Powinno stwierdzać istnienie przynajmniej jednego komputera, który jest podłączony do internetu.
+
+4. Jakie jest zdanie szczegółowe sprzeczne? (zdanie O)
+- Powinno stwierdzać istnienie przynajmniej jednego komputera, który nie jest podłączony do internetu.
 
 ---
 

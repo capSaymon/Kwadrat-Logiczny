@@ -1,18 +1,26 @@
 from LLAMA.send_prompt import Prompt
-from values import prompt
+from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots
 
 import os
 
 class llama():
-    def __init__(self, file_name):
+    def __init__(self, file_name, prompt_technique=2):
         self.file_name = file_name
+        self.prompt_technique=prompt_technique
 
-    def result(self):        
+    def result(self):
         file_path = self.search_path()
         with open(file_path, 'r', encoding='utf-8') as file:
             task = file.read()
 
-        outcome = Prompt(f'{prompt} \n\n {task}').send()
+        if self.prompt_technique == 0:
+            outcome = Prompt(f'{prompt_zero_shots} \n\n {task}').send()
+        elif self.prompt_technique == 1:
+            outcome = Prompt(f'{prompt_one_shots} \n\n {task}').send()
+        elif self.prompt_technique == 2:
+            outcome = Prompt(f'{prompt_few_shots} \n\n {task}').send()
+        else:
+            return None, None
         return task, outcome
     
     def save(self, answear, addition = '\nLLAMA \nAnswear:\n', folder_name='questions'):

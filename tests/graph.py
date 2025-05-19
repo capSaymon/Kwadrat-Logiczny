@@ -5,8 +5,14 @@ import glob
 import os
 
 class results():
-    def __init__(self, file_name):
+    def __init__(self, file_name, prompt_technique=2):
         self.file_name = file_name
+        self.prompt_technique = prompt_technique 
+
+        if self.prompt_technique == 0:
+            self.file_name = self.file_name+'_zero_shot'
+        elif self.prompt_technique == 1:
+            self.file_name = self.file_name+'_one_shot'
 
     def run(self):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))

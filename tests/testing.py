@@ -14,9 +14,10 @@ from GEMINI.ML_gemini import gemini
 
 
 class test():
-    def __init__(self, report_file_name):
+    def __init__(self, report_file_name, prompt_technique):
         self.nlp = spacy.load("pl_core_news_sm")
         self.report_file_name = report_file_name
+        self.prompt_technique = prompt_technique 
 
 
     def run(self):
@@ -179,6 +180,11 @@ class test():
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         QUESTIONS_PATH = os.path.join(BASE_DIR, 'reports')
 
+        if self.prompt_technique == 0:
+            report_file_name = report_file_name+'_zero_shot'
+        elif self.prompt_technique == 1:
+            report_file_name = report_file_name+'_one_shot'
+
         os.makedirs(QUESTIONS_PATH, exist_ok=True)
         file_path = os.path.join(QUESTIONS_PATH, f'{report_file_name}.csv')
         file_exists = os.path.isfile(file_path)
@@ -193,7 +199,7 @@ class test():
 
 
     def run_LLAMA(self, base_name: str):
-        llama_instance = llama(base_name)
+        llama_instance = llama(base_name, self.prompt_technique)
         start_time = time.time()
         question, outcome = llama_instance.run_test()
         end_time = time.time()
@@ -201,7 +207,7 @@ class test():
 
 
     def run_OPENAI(self, base_name: str):
-        openai_instance = gpt(base_name)
+        openai_instance = gpt(base_name, self.prompt_technique)
         start_time = time.time()
         question, outcome = openai_instance.run_test()
         end_time = time.time()
@@ -217,7 +223,7 @@ class test():
 
 
     def run_GEMINI(self, base_name: str):
-        gemini_instance = gemini(base_name)
+        gemini_instance = gemini(base_name, self.prompt_technique)
         start_time = time.time()
         question, outcome = gemini_instance.run_test()
         end_time = time.time()

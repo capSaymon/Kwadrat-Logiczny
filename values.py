@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 QUESTIONS_PATH = os.path.join(BASE_DIR, 'questions')
 
 #few-shots prompt
-prompt: str = f"""
+prompt_few_shots: str = f"""
 Kwadrat logiczny składa się z czterech zdań oznaczonych jako A, E, I, O:
 
 - A: zdanie ogólno-twierdzące (np. „Wszystkie X są Y”)
@@ -68,3 +68,98 @@ O: ...
 
 Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
 """
+
+#zero-shots prompt
+prompt_zero_shots: str = f"""
+Kwadrat logiczny składa się z czterech zdań oznaczonych jako A, E, I, O:
+
+- A: zdanie ogólno-twierdzące (np. „Wszystkie X są Y”)
+- E: zdanie ogólno-przeczące (np. „Żadne X nie jest Y”)
+- I: zdanie szczegółowo-twierdzące (np. „Niektóre X są Y”)
+- O: zdanie szczegółowo-przeczące (np. „Niektóre X nie są Y”)
+
+Relacje logiczne między zdaniami:
+
+**Implikacja**:
+- A → I (jeśli A jest prawdziwe, to I też)
+- E → O (jeśli E jest prawdziwe, to O też)
+
+**Przeciwieństwo**:
+- A i E nie mogą być jednocześnie prawdziwe, ale mogą być fałszywe
+
+**Sprzeczność**:
+- A i O nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe
+- E i I nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe
+
+**Podprzeciwieństwo**:
+- I i O nie mogą być jednocześnie fałszywe, ale mogą być prawdziwe
+
+### Wzór zdań
+
+- A: Wszystkie X są Y
+- E: Żadne X nie jest Y
+- I: Niektóre X są Y
+- O: Niektóre X nie są Y
+
+
+### Zadanie
+
+Na podstawie podanego zdania A wygeneruj pozostałe trzy zdania (E, I, O), stosując się do podanych zasad logiki kwadratu.  
+Twoja odpowiedź **musi zawierać dokładnie cztery linijki**, w formacie:
+
+A: [podane zdanie]  
+E: ... 
+I: ...  
+O: ...
+
+Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
+"""
+
+
+
+#one-shots prompt
+prompt_one_shots: str = f"""
+Kwadrat logiczny składa się z czterech zdań oznaczonych jako A, E, I, O:
+
+- A: zdanie ogólno-twierdzące (np. „Wszystkie X są Y”)
+- E: zdanie ogólno-przeczące (np. „Żadne X nie jest Y”)
+- I: zdanie szczegółowo-twierdzące (np. „Niektóre X są Y”)
+- O: zdanie szczegółowo-przeczące (np. „Niektóre X nie są Y”)
+
+Relacje logiczne między zdaniami:
+
+**Implikacja**:
+- A → I (jeśli A jest prawdziwe, to I też)
+- E → O (jeśli E jest prawdziwe, to O też)
+
+**Przeciwieństwo**:
+- A i E nie mogą być jednocześnie prawdziwe, ale mogą być fałszywe
+
+**Sprzeczność**:
+- A i O nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe
+- E i I nie mogą być jednocześnie prawdziwe ani jednocześnie fałszywe
+
+**Podprzeciwieństwo**:
+- I i O nie mogą być jednocześnie fałszywe, ale mogą być prawdziwe
+
+---
+
+Przykład 1:
+A: Wszystkie ptaki mają skrzydła.  
+E: Żadne ptaki nie mają skrzydeł.  
+I: Niektóre ptaki mają skrzydła.  
+O: Niektóre ptaki nie mają skrzydeł.
+
+### Zadanie
+
+Na podstawie podanego zdania A wygeneruj pozostałe trzy zdania (E, I, O), stosując się do podanych zasad logiki kwadratu.  
+Twoja odpowiedź **musi zawierać dokładnie cztery linijki**, w formacie:
+
+A: [podane zdanie]  
+E: ... 
+I: ...  
+O: ...
+
+Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
+"""
+

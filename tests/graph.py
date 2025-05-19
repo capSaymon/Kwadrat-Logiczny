@@ -5,7 +5,7 @@ import glob
 import os
 
 class results():
-    def __init__(self, file_name, prompt_technique=2):
+    def __init__(self, file_name="graph", prompt_technique=2):
         self.file_name = file_name
         self.prompt_technique = prompt_technique 
 
@@ -73,3 +73,72 @@ class results():
 
         plt.tight_layout()
         plt.show()
+
+
+    def all_reports(self):
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
+
+        if not os.path.exists(REPORTS_DIR):
+            raise FileNotFoundError("Folder 'reports' not found.")
+
+        all_files = sorted([f for f in os.listdir(REPORTS_DIR) if f.endswith('.csv')])
+        if not all_files:
+            print("Folder is empty.")
+            return
+
+        for file in all_files:
+            print(f"- {file}")
+
+        metrics = ['Attempts', 'Format Success', 'Relation Success', 'First Aproach Successful']
+
+        for file in all_files:
+            full_path = os.path.join(REPORTS_DIR, file)
+
+            try:
+                df = pd.read_csv(full_path)
+            except Exception as e:
+                print(e)
+                continue
+
+            if not all(metric in df.columns for metric in metrics):
+                continue
+
+            grouped = df.groupby('Question')
+            questions = []
+            data = {metric: [] for metric in metrics}
+
+            print('\n' + '=' * 50)
+            print(f"{file}\nValues for questions:\n")
+            for question, group in grouped:
+                print(f"{question}")
+                questions.append(question)
+
+                for metric in metrics:
+                    if metric == 'First Aproach Successful':
+                        value = round(group[metric].mean())
+                        print(f"  Mean {metric}: {value}")
+                    else:
+                        value = group[metric].sum()
+                        print(f"  Sum {metric}: {value}")
+                    data[metric].append(value)
+
+                print('\n')
+            print('=' * 50)
+
+            x = np.arange(len(questions))
+            width = 0.2
+
+            fig, ax = plt.subplots(figsize=(12, 5))
+            for i, metric in enumerate(metrics):
+                offset = (i - 1.5) * width
+                ax.bar(x + offset, data[metric], width, label=metric)
+
+            ax.set_xlabel('Question')
+            ax.set_ylabel('Value')
+            ax.set_title(f'{file}')
+            ax.set_xticks(x)
+            ax.set_xticklabels(questions, rotation=45, ha='right')
+            ax.legend()
+            plt.tight_layout()
+            plt.show()

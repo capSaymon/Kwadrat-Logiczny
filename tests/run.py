@@ -4,12 +4,21 @@ from graph import results
 def main():
     reports_name: list[str] = ['report_LLAMA', 'report_OPENAI', 'report_HyDE', 'report_GEMINI']
 
-    while True:
-        print()
-        for index, report in enumerate(reports_name):
-            print(f'{index+1}: {report}')
-            
+    while True:         
         try:
+            choice = input("\nShow all reports? (y/n) ").strip().lower()[0]
+            if choice == "y":
+                results().all_reports()
+            elif choice == "n":
+                pass
+            else:
+                raise ValueError
+
+            print('\n'*20)
+            for index, report in enumerate(reports_name):
+                print(f'{index+1}: {report}')
+            
+            
             choice = int(input("\nSelect the report number you want. By selecting 0 end the program. \nChoice: "))
             if choice == 0:
                 break

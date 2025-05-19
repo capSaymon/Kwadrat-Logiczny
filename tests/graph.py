@@ -15,6 +15,8 @@ class results():
             self.file_name = self.file_name+'_one_shot'
         elif self.prompt_technique == 3:
             self.file_name = self.file_name+'_self_consistency'
+        elif self.prompt_technique == 4:
+            self.file_name = self.file_name+'_chain_of_thought'
 
     def run(self):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))

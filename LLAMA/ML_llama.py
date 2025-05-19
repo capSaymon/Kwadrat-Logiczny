@@ -1,6 +1,6 @@
 from collections import Counter
 from LLAMA.send_prompt import Prompt
-from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots
+from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots, prompt_chain_of_thought
 
 import os
 
@@ -22,6 +22,8 @@ class llama():
             outcome = Prompt(f'{prompt_few_shots} \n\n {task}').send()
         elif self.prompt_technique == 3:
             outcome = self.self_consistency(task)
+        elif self.prompt_technique == 4:
+            outcome = Prompt(f'{prompt_chain_of_thought} \n\n {task}').send()
         else:
             return None, None
         return task, outcome

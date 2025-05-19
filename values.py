@@ -163,3 +163,54 @@ O: ...
 Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
 """
 
+
+
+
+
+
+#chain-of-thought prompt
+prompt_chain_of_thought = f"""
+Zadanie: Na podstawie zdania A wygeneruj trzy inne zdania: E, I i O, zgodnie z logiką kwadratu.
+
+Typy zdań:
+- A: Wszystkie X są Y
+- E: Żadne X nie jest Y
+- I: Niektóre X są Y
+- O: Niektóre X nie są Y
+
+Zależności:
+- A → I (implikacja)
+- E → O (implikacja)
+- A i E: przeciwieństwo
+- A i O: sprzeczność
+- E i I: sprzeczność
+- I i O: podprzeciwieństwo
+
+---
+
+Zdanie A: "Wszystkie komputery są podłączone do internetu."
+
+Pomyśl krok po kroku:
+
+1. Znaczenie A: Jeśli coś jest komputerem, to jest podłączone do internetu.
+2. Zdanie E (przeciwieństwo do A): „Żadne komputery nie są podłączone do internetu.”
+3. Zdanie I (zgodne szczegółowe): „Niektóre komputery są podłączone do internetu.”
+4. Zdanie O (sprzeczność do A): „Niektóre komputery nie są podłączone do internetu.”
+
+---
+
+### Zadanie
+
+Na podstawie podanego zdania A wygeneruj pozostałe trzy zdania (E, I, O), stosując się do podanych zasad logiki kwadratu.  
+Twoja odpowiedź **musi zawierać dokładnie cztery linijki**, w formacie:
+
+A: [podane zdanie]  
+E: ... 
+I: ...  
+O: ...
+
+Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
+"""
+
+
+

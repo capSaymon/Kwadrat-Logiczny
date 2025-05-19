@@ -63,7 +63,7 @@ class gemini():
                 
     def self_consistency(self, task):
         prompt_results = []
-        for _ in range(5):
+        for _ in range(3):
             result = Prompt(f'{prompt_few_shots} \n\n {task}').send()
             prompt_results.append(result.strip())
         

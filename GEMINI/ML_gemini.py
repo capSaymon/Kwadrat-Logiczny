@@ -1,18 +1,33 @@
+from collections import Counter
 from GEMINI.send_prompt import Prompt
-from values import prompt, QUESTIONS_PATH
+from values import prompt_zero_shots, prompt_few_shots,prompt_one_shots, prompt_chain_of_thought, prompt_ReAct, QUESTIONS_PATH
 
 import os
 
 class gemini():
-    def __init__(self, file_name):
+    def __init__(self, file_name, prompt_technique=2):
         self.file_name = file_name
+        self.prompt_technique=prompt_technique
 
     def result(self):
         file_path = self.search_path()
         with open(file_path, 'r', encoding='utf-8') as file:
             task = file.read()
-            
-        outcome = Prompt(f'{prompt} \n\n {task}').send()
+
+        if self.prompt_technique == 0:
+            outcome = Prompt(f'{prompt_zero_shots} \n\n {task}').send()
+        elif self.prompt_technique == 1:
+            outcome = Prompt(f'{prompt_one_shots} \n\n {task}').send()
+        elif self.prompt_technique == 2:
+            outcome = Prompt(f'{prompt_few_shots} \n\n {task}').send()
+        elif self.prompt_technique == 3:
+            outcome = self.self_consistency(task)
+        elif self.prompt_technique == 4:
+            outcome = Prompt(f'{prompt_chain_of_thought} \n\n {task}').send()
+        elif self.prompt_technique == 5:
+            outcome = Prompt(f'{prompt_ReAct} \n\n {task}').send()
+        else:
+            return None, None
         return task, outcome
     
     def save(self, answear, addition = '\nGEMINI \nAnswear:\n', folder_name='questions'):
@@ -47,6 +62,16 @@ class gemini():
                     break
                 else:
                     print('Error. Try again')
+                
+    def self_consistency(self, task):
+        prompt_results = []
+        for _ in range(3):
+            result = Prompt(f'{prompt_few_shots} \n\n {task}').send()
+            prompt_results.append(result.strip())
+        
+        counts = Counter(prompt_results)
+        most_common_result, _ = counts.most_common(1)[0]
+        return most_common_result
                     
     def run_test(self):
         question, outcome = self.result()

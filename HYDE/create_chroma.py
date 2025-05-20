@@ -1,6 +1,5 @@
 import shutil
 import os
-import sys
 
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -35,10 +34,6 @@ class Run_chroma():
         )
         chunks = text_splitter.split_documents(documents)
         print(f"Split {len(documents)} documents into {len(chunks)} chunks.")
-
-        document = chunks[5]
-        document.page_content
-        document.metadata
 
         return chunks
 

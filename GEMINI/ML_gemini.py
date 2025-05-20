@@ -1,6 +1,6 @@
 from collections import Counter
 from GEMINI.send_prompt import Prompt
-from values import prompt_zero_shots, prompt_few_shots,prompt_one_shots, prompt_chain_of_thought, QUESTIONS_PATH
+from values import prompt_zero_shots, prompt_few_shots,prompt_one_shots, prompt_chain_of_thought, prompt_ReAct, QUESTIONS_PATH
 
 import os
 
@@ -24,6 +24,8 @@ class gemini():
             outcome = self.self_consistency(task)
         elif self.prompt_technique == 4:
             outcome = Prompt(f'{prompt_chain_of_thought} \n\n {task}').send()
+        elif self.prompt_technique == 5:
+            outcome = Prompt(f'{prompt_ReAct} \n\n {task}').send()
         else:
             return None, None
         return task, outcome

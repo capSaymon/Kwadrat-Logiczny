@@ -29,8 +29,8 @@ def main():
             print(f'\n{name}\n')
             if not choice == 3:
                 print('-'*50)
-                technique = int(input("\n0: zero-shot\n1: one-shot\n2: few-shot\n3: self-consistency\n4: chain-of-thought\n\nSelect the prompt technique.\nChoice: "))
-                if technique not in [0, 1, 2, 3, 4]:
+                technique = int(input("\n0: zero-shot\n1: one-shot\n2: few-shot\n3: self-consistency\n4: chain-of-thought\n5: ReAct\n\nSelect the prompt technique.\nChoice: "))
+                if technique not in [0, 1, 2, 3, 4, 5]:
                     raise ValueError
             else:
                 technique=3

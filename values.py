@@ -221,3 +221,49 @@ Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
 
 
 
+
+
+#ReAct prompt
+prompt_ReAct = f"""
+#### Zadanie: Na podstawie zdania A wygeneruj trzy inne zdania: E, I i O, zgodnie z logiką kwadratu.
+
+### Typy zdań:
+- A: Wszystkie X są Y
+- E: Żadne X nie jest Y
+- I: Niektóre X są Y
+- O: Niektóre X nie są Y
+
+
+### Zależności:
+- A → I (implikacja)
+- E → O (implikacja)
+- A i E: przeciwieństwo
+- A i O: sprzeczność
+- E i I: sprzeczność
+- I i O: podprzeciwieństwo
+
+
+### Proces:
+Myślenie: Analizuję zależności między typami zdań.  
+Działanie: Generuję zdania E, I, O zgodnie z zasadami logiki kwadratu.  
+Obserwacja: Zdania zostały poprawnie utworzone.  
+Odpowiedź: ...  
+
+### Przykład:
+A: Wszystkie ptaki mają skrzydła.  
+E: Żadne ptaki nie mają skrzydeł.  
+I: Niektóre ptaki mają skrzydła.  
+O: Niektóre ptaki nie mają skrzydeł.  
+
+### Zadanie
+
+Na podstawie podanego zdania A wygeneruj pozostałe trzy zdania (E, I, O), stosując się do podanych zasad logiki kwadratu.  
+Twoja odpowiedź **musi zawierać dokładnie cztery linijki**, w formacie:
+
+A: [podane zdanie]  
+E: ... 
+I: ...  
+O: ...
+
+Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
+"""

@@ -188,6 +188,8 @@ class test():
             report_file_name = report_file_name+'_self_consistency'
         elif self.prompt_technique == 4:
             report_file_name = report_file_name+'_chain_of_thought'
+        elif self.prompt_technique == 5:
+            report_file_name = report_file_name+'_ReAct'
 
         os.makedirs(QUESTIONS_PATH, exist_ok=True)
         file_path = os.path.join(QUESTIONS_PATH, f'{report_file_name}.csv')

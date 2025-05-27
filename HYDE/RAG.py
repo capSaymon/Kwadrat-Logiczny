@@ -5,7 +5,6 @@ from langchain_community.vectorstores import Chroma
 from langchain.prompts import ChatPromptTemplate
 from HyDE.llama_embeddings import LlamaEmbeddings
 from HyDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE
-from HyDE.create_chroma import Run_chroma
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.send_prompt import Prompt
@@ -76,25 +75,3 @@ class rag():
         question, outcome = self.result()
         print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
         return question, outcome
-
-
-
-def CHROMA(fun):
-    def new():
-        generate = Run_chroma()
-    return new
-
-def run_RAG(fun):
-    def new():
-        for file_name in os.listdir(QUESTIONS_PATH):
-            if not file_name.endswith('.txt'):
-                continue
-            base_name = os.path.splitext(file_name)[0]
-            print(f'\nFile: {base_name}')
-
-            rag_instance = rag(base_name)
-            rag_instance.run()
-            print('\n','-'*50,'\n')
-            
-        fun()
-    return new

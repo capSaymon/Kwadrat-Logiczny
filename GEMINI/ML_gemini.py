@@ -77,17 +77,3 @@ class gemini():
         question, outcome = self.result()
         print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
         return question, outcome
-
-def run_gemini(fun):
-    def new():
-        fun()
-        for file_name in os.listdir(QUESTIONS_PATH):
-            if not file_name.endswith('.txt'):
-                continue
-            base_name = os.path.splitext(file_name)[0]
-            print(f'\nFile: {base_name}')
-
-            openai_instance = gemini(base_name)
-            openai_instance.run()
-            print('\n','-'*50,'\n')
-    return new

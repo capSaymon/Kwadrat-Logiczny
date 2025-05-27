@@ -1,4 +1,4 @@
-from testing import test
+from testing import Test
 from graph import results
 
 def main():
@@ -38,7 +38,7 @@ def main():
             print('-'*50)
             choice = input("\nRun tests? (y/n) ").strip().lower()[0]
             if choice == "y":
-                test(name, technique).run()
+                Test(name, technique).run()
             elif choice == "n":
                 pass
             else:

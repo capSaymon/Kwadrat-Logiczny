@@ -12,13 +12,17 @@ from values import QUESTIONS_PATH
 
 
 class rag():
-    def __init__(self, file_name):
+    def __init__(self, *, file_name: str = None, sentence: str = None):
         self.file_name = file_name
+        self.sentence = sentence
 
     def result(self):
-        file_path = self.search_path()
-        with open(file_path, 'r', encoding='utf-8') as file:
-            task = file.read()
+        if self.file_name:
+            file_path = self.search_path()
+            with open(file_path, 'r', encoding='utf-8') as file:
+                task = file.read()
+        else:
+            task = self.sentence
 
         llama_embeddings = LlamaEmbeddings(task)
         db = Chroma(persist_directory=CHROMA_PATH, embedding_function=llama_embeddings)
@@ -35,7 +39,10 @@ class rag():
         #print(f'\n\n\n{prompt}\n\n\n\n')
         outcome = Prompt(prompt).send()
 
-        return task, outcome
+        if self.file_name:
+            return task, outcome
+        else:
+            return outcome
 
     
     def save(self, answear):
@@ -52,17 +59,25 @@ class rag():
     def run(self):
         play = True
         while play:
-            question, outcome = self.result()
-            if 'RAG' in question:
-                print(f'File {self.file_name} allready have answear for llama')
-                break
-            print(question,'\n\n',outcome)
+            if self.file_name:
+                question, outcome = self.result()
+                if 'RAG' in question:
+                    print(f'File {self.file_name} allready have answear for rag')
+                    break
+                print(question,'\n\n',outcome)
+
+            else:
+                outcome = self.result()
+                print(outcome)
 
             while True:
                 action = input('Reject or Accept (r/a): ')
                 if action == 'a':
-                    print('Accept and save answear \n')
-                    self.save(outcome)
+                    if self.file_name:
+                        print('Accept and save answear \n')
+                        self.save(outcome)
+                    else:
+                        print('Accept answear \n')
                     play = False
                     break
                 elif action == 'r':

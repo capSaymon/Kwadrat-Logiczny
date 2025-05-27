@@ -64,9 +64,11 @@ class llama():
             while True:
                 action = input('Reject or Accept (r/a): ')
                 if action == 'a':
-                    print('Accept and save answear \n')
                     if self.file_name:
+                        print('Accept and save answear \n')
                         self.save(outcome)
+                    else:
+                        print('Accept answear \n')
                     play = False
                     break
                 elif action == 'r':

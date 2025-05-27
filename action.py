@@ -11,25 +11,17 @@ class Run():
         self.technique = technique
 
     def result(self) -> str:
-        outcome: str = None
-        max_attempts = 10
-        attempts = 0
+        if self.llm == 1:
+            outcome = self.run_GEMINI()
+        elif self.llm == 2 and self.technique != 6:
+            outcome = self.run_LLAMA()
+        elif self.llm == 3:
+            outcome = self.run_OPENAI()
+        elif self.technique == 6:
+            outcome = self.run_HyDE()
+        else:
+            print("Invalid combination of LLM and technique.")
 
-        while attempts < max_attempts:
-            if self.llm == 1:
-                outcome = self.run_GEMINI()
-            elif self.llm == 2 and self.technique != 6:
-                outcome = self.run_LLAMA()
-            elif self.llm == 3:
-                outcome = self.run_OPENAI()
-            elif self.technique == 6:
-                outcome = self.run_HyDE()
-            else:
-                print("Invalid combination of LLM and technique.")
-                break
-
-            if self.check_outcome(outcome):
-                break
 
         return outcome
     
@@ -44,13 +36,13 @@ class Run():
         return False
 
     def run_LLAMA(self) -> str:
-        return llama(self.sentence, self.technique).run()
+        return llama(sentence=self.sentence, prompt_technique=self.technique).run()
 
     def run_OPENAI(self) -> str:
-        return gpt(self.sentence, self.technique).run()
+        return gpt(sentence=self.sentence, prompt_technique=self.technique).run()
 
     def run_HyDE(self) -> str:
-        return rag(self.sentence).run()
+        return rag(sentence=self.sentence).run()
 
     def run_GEMINI(self) -> str:
-        return gemini(self.sentence, self.technique).run()
+        return gemini(sentence=self.sentence, prompt_technique=self.technique).run()

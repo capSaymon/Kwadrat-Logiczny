@@ -131,7 +131,7 @@ class Test():
 
 
     def run_LLAMA(self, base_name: str):
-        llama_instance = llama(base_name, self.prompt_technique)
+        llama_instance = llama(file_name=base_name, prompt_technique=self.prompt_technique)
         start_time = time.time()
         question, outcome = llama_instance.run_test()
         end_time = time.time()
@@ -139,7 +139,7 @@ class Test():
 
 
     def run_OPENAI(self, base_name: str):
-        openai_instance = gpt(base_name, self.prompt_technique)
+        openai_instance = gpt(file_name=base_name, prompt_technique=self.prompt_technique)
         start_time = time.time()
         question, outcome = openai_instance.run_test()
         end_time = time.time()
@@ -147,7 +147,7 @@ class Test():
 
 
     def run_HyDE(self, base_name: str):
-        rag_instance = rag(base_name)
+        rag_instance = rag(file_name=base_name)
         start_time = time.time()
         question, outcome = rag_instance.run_test()
         end_time = time.time()
@@ -155,7 +155,7 @@ class Test():
 
 
     def run_GEMINI(self, base_name: str):
-        gemini_instance = gemini(base_name, self.prompt_technique)
+        gemini_instance = gemini(file_name=base_name, prompt_technique=self.prompt_technique)
         start_time = time.time()
         question, outcome = gemini_instance.run_test()
         end_time = time.time()

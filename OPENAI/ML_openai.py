@@ -5,14 +5,18 @@ from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots, prompt
 import os
 
 class gpt():
-    def __init__(self, file_name, prompt_technique=2):
+    def __init__(self, *, file_name: str = None, sentence: str = None, prompt_technique: int = 2):
         self.file_name = file_name
-        self.prompt_technique=prompt_technique
+        self.sentence = sentence
+        self.prompt_technique = prompt_technique
 
     def result(self):
-        file_path = self.search_path()
-        with open(file_path, 'r', encoding='utf-8') as file:
-            task = file.read()
+        if self.file_name:
+            file_path = self.search_path()
+            with open(file_path, 'r', encoding='utf-8') as file:
+                task = file.read()
+        else:
+            task = self.sentence
 
         if self.prompt_technique == 0:
             outcome = Prompt(f'{prompt_zero_shots} \n\n {task}').send()
@@ -26,9 +30,11 @@ class gpt():
             outcome = Prompt(f'{prompt_chain_of_thought} \n\n {task}').send()
         elif self.prompt_technique == 5:
             outcome = Prompt(f'{prompt_ReAct} \n\n {task}').send()
+
+        if self.file_name:
+            return task, outcome
         else:
-            return None, None
-        return task, outcome
+            return outcome
     
     def save(self, answear):
         file_path = self.search_path()
@@ -44,17 +50,25 @@ class gpt():
     def run(self):
         play = True
         while play:
-            question, outcome = self.result()
-            if 'OPENAI' in question:
-                print(f'File {self.file_name} allready have answear for openai')
-                break
-            print(question,'\n\n',outcome)
+            if self.file_name:
+                question, outcome = self.result()
+                if 'OPENAI' in question:
+                    print(f'File {self.file_name} allready have answear for openai')
+                    break
+                print(question,'\n\n',outcome)
+
+            else:
+                outcome = self.result()
+                print(outcome)
 
             while True:
                 action = input('Reject or Accept (r/a): ')
                 if action == 'a':
-                    print('Accept and save answear \n')
-                    self.save(outcome)
+                    if self.file_name:
+                        print('Accept and save answear \n')
+                        self.save(outcome)
+                    else:
+                        print('Accept answear \n')
                     play = False
                     break
                 elif action == 'r':

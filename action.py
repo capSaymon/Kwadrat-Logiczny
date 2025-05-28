@@ -11,17 +11,26 @@ class Run():
         self.technique = technique
 
     def result(self) -> str:
-        if self.llm == 1:
-            outcome = self.run_GEMINI()
-        elif self.llm == 2 and self.technique != 6:
-            outcome = self.run_LLAMA()
-        elif self.llm == 3:
-            outcome = self.run_OPENAI()
-        elif self.technique == 6:
-            outcome = self.run_HyDE()
-        else:
-            print("Invalid combination of LLM and technique.")
+        index: int = 0
+        end: int = 20
 
+        while index < end:
+            outcome: str = ''
+            
+            if self.llm == 1:
+                outcome = self.run_GEMINI()
+            elif self.llm == 2 and self.technique != 6:
+                outcome = self.run_LLAMA()
+            elif self.llm == 3:
+                outcome = self.run_OPENAI()
+            elif self.technique == 6:
+                outcome = self.run_HyDE()
+            else:
+                print("Invalid combination of LLM and technique.")
+
+            index = index + 1
+            if self.check_outcome(outcome):
+                break
 
         return outcome
     

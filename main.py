@@ -20,9 +20,20 @@ def main():
 
             if choice_technique not in [0, 1, 2, 3, 4, 5, 6]:
                 raise IndexError
-    
-        action = Run(sentence, choice_llm, choice_technique)
-        print(action.result())
+
+        while True:
+            action = Run(sentence, choice_llm, choice_technique)
+            print(action.result())
+
+            choice = input('Reject or Accept (r/a): ')
+            if choice == 'a':
+                print('Accept answear \n')
+                break
+            elif choice == 'r':
+                print('Reject answear\n')
+                break
+            else:
+                print('Error. Try again\n')
 
     except ValueError:
         print(f'\n Wrong value \n')

@@ -48,34 +48,17 @@ class llama():
         return file_path
     
     def run(self):
-        play = True
-        while play:
-            if self.file_name:
-                question, outcome = self.result()
-                if 'LLAMA' in question:
-                    print(f'File {self.file_name} allready have answear for llama')
-                    break
-                print(question,'\n\n',outcome)
-
+        if self.file_name:
+            question, outcome = self.result()
+            if 'LLAMA' in question:
+                print(f'File {self.file_name} allready have answear for llama')
             else:
-                outcome = self.result()
-                print(outcome)
+                return question, outcome
 
-            while True:
-                action = input('Reject or Accept (r/a): ')
-                if action == 'a':
-                    if self.file_name:
-                        print('Accept and save answear \n')
-                        self.save(outcome)
-                    else:
-                        print('Accept answear \n')
-                    play = False
-                    break
-                elif action == 'r':
-                    print('Reject and not save answear\n')
-                    break
-                else:
-                    print('Error. Try again')
+        else:
+            outcome = self.result()
+            return outcome
+
 
     def self_consistency(self, task):
         prompt_results = []

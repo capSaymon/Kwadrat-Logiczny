@@ -1,14 +1,11 @@
+from schemat import LLM
 from collections import Counter
 from LLAMA.send_prompt import Prompt
 from values import prompt_zero_shots, prompt_one_shots, prompt_few_shots, prompt_chain_of_thought, prompt_ReAct
 
-import os
-
-class llama():
-    def __init__(self, *, file_name: str = None, sentence: str = None, prompt_technique: int = 2):
-        self.file_name = file_name
-        self.sentence = sentence
-        self.prompt_technique = prompt_technique
+class llama(LLM):
+    def __init__(self, *, file_name: str = None, sentence: str = None, prompt_technique: int = 2, name = 'LLAMA'):
+        super().__init__(file_name=file_name, sentence=sentence, prompt_technique=prompt_technique, name=name)
 
     def result(self):
         if self.file_name:
@@ -35,31 +32,7 @@ class llama():
             return task, outcome
         else:
             return outcome
-    
-    def save(self, answear, addition = '\nLLAMA \nAnswear:\n', folder_name='questions'):
-        file_path = self.search_path(folder_name)
-        with open(file_path, 'a', encoding='utf-8') as file:
-            file.write(addition + answear)
-
-    def search_path(self, folder_name='questions'):
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        QUESTIONS_PATH = os.path.join(BASE_DIR, folder_name)
-        file_path = os.path.join(QUESTIONS_PATH, f'{self.file_name}.txt')
-        return file_path
-    
-    def run(self):
-        if self.file_name:
-            question, outcome = self.result()
-            if 'LLAMA' in question:
-                print(f'File {self.file_name} allready have answear for llama')
-            else:
-                return question, outcome
-            
-        else:
-            outcome = self.result()
-            return outcome
-
-
+        
     def self_consistency(self, task):
         prompt_results = []
         for _ in range(5):
@@ -69,8 +42,3 @@ class llama():
         counts = Counter(prompt_results)
         most_common_result, _ = counts.most_common(1)[0]
         return most_common_result
-    
-    def run_test(self):
-        question, outcome = self.result()
-        print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
-        return question, outcome

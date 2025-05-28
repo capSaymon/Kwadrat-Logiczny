@@ -3,6 +3,7 @@ from action import Run
 def main():      
     try:        
         sentence = input('Enter sentence A: ')
+        sentence = 'A: '+sentence
 
         print('\n\n 1 - gemini \n 2 - llama \n 3 - openai \n')
         choice_llm = int(input('Select options: '))
@@ -18,12 +19,20 @@ def main():
                 print(text)
             choice_technique = int(input('Select the prompt technique: '))
 
-            if choice_technique not in [0, 1, 2, 3, 4, 5, 6]:
-                raise IndexError
+            valid_techniques = [0, 1, 2, 3, 4, 5]
+            if choice_llm == 2:
+                valid_techniques.append(6)
+
+            if choice_technique not in valid_techniques:
+                raise ValueError("Invalid prompt technique selected for the chosen LLM.")
 
         while True:
             action = Run(sentence, choice_llm, choice_technique)
-            print(action.result())
+            outcome = action.result()
+            print()
+            print('-'*50,'\n')
+            print(f'{outcome}\n')
+            print('-'*50,'\n')
 
             choice = input('Reject or Accept (r/a): ')
             if choice == 'a':
@@ -31,15 +40,15 @@ def main():
                 break
             elif choice == 'r':
                 print('Reject answear\n')
-                break
             else:
                 print('Error. Try again\n')
 
-    except ValueError:
-        print(f'\n Wrong value \n')
+    except ValueError as e:
+        print(f'\n[Error] {e}\n')
 
     except IndexError:
-        print(f'\n It is not a number \n')
+        print(f'\n[Error] Input must be a valid number.\n')
+
 
 if __name__ == '__main__':
     main()

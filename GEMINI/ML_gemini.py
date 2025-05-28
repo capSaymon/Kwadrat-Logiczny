@@ -1,14 +1,11 @@
+from schemat import LLM
 from collections import Counter
 from GEMINI.send_prompt import Prompt
 from values import prompt_zero_shots, prompt_one_shots, prompt_few_shots, prompt_chain_of_thought, prompt_ReAct
 
-import os
-
-class gemini():
-    def __init__(self, *, file_name: str = None, sentence: str = None, prompt_technique: int = 2):
-        self.file_name = file_name
-        self.sentence = sentence
-        self.prompt_technique = prompt_technique
+class gemini(LLM):
+    def __init__(self, *, file_name: str = None, sentence: str = None, prompt_technique: int = 2, name = 'GEMINI'):
+        super().__init__(file_name=file_name, sentence=sentence, prompt_technique=prompt_technique, name=name)
 
     def result(self):
         if self.file_name:
@@ -30,36 +27,12 @@ class gemini():
             outcome = Prompt(f'{prompt_chain_of_thought} \n\n {task}').send()
         elif self.prompt_technique == 5:
             outcome = Prompt(f'{prompt_ReAct} \n\n {task}').send()
-
+        
         if self.file_name:
             return task, outcome
         else:
             return outcome
-    
-    def save(self, answear, addition = '\nGEMINI \nAnswear:\n', folder_name='questions'):
-        file_path = self.search_path(folder_name)
-        with open(file_path, 'a', encoding='utf-8') as file:
-            file.write(addition + answear)
-
-    def search_path(self, folder_name='questions'):
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        QUESTIONS_PATH = os.path.join(BASE_DIR, folder_name)
-        file_path = os.path.join(QUESTIONS_PATH, f'{self.file_name}.txt')
-        return file_path
-    
-    def run(self):
-        if self.file_name:
-            question, outcome = self.result()
-            if 'GEMINI' in question:
-                print(f'File {self.file_name} allready have answear for gemini')
-            else:
-                return question, outcome
-            
-        else:
-            outcome = self.result()
-            return outcome
-                
-                
+        
     def self_consistency(self, task):
         prompt_results = []
         for _ in range(3):
@@ -69,8 +42,3 @@ class gemini():
         counts = Counter(prompt_results)
         most_common_result, _ = counts.most_common(1)[0]
         return most_common_result
-                    
-    def run_test(self):
-        question, outcome = self.result()
-        print(question,'\n\n',outcome,'\n\n', '-'*50, '\n\n')
-        return question, outcome

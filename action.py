@@ -15,7 +15,7 @@ class Run():
         end: int = 20
 
         while index < end:
-            outcome: str = ''
+            outcome: str = None
             
             if self.llm == 1:
                 outcome = self.run_GEMINI()

@@ -57,34 +57,16 @@ class rag():
         return file_path
     
     def run(self):
-        play = True
-        while play:
-            if self.file_name:
-                question, outcome = self.result()
-                if 'RAG' in question:
-                    print(f'File {self.file_name} allready have answear for rag')
-                    break
-                print(question,'\n\n',outcome)
-
+        if self.file_name:
+            question, outcome = self.result()
+            if 'RAG' in question:
+                print(f'File {self.file_name} allready have answear for rag')
             else:
-                outcome = self.result()
-                print(outcome)
-
-            while True:
-                action = input('Reject or Accept (r/a): ')
-                if action == 'a':
-                    if self.file_name:
-                        print('Accept and save answear \n')
-                        self.save(outcome)
-                    else:
-                        print('Accept answear \n')
-                    play = False
-                    break
-                elif action == 'r':
-                    print('Reject and not save answear\n')
-                    break
-                else:
-                    print('Error. Try again')
+                return question, outcome
+            
+        else:
+            outcome = self.result()
+            return outcome
     
     def run_test(self):
         question, outcome = self.result()

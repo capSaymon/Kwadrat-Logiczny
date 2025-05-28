@@ -1,6 +1,6 @@
 from collections import Counter
 from LLAMA.send_prompt import Prompt
-from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots, prompt_chain_of_thought, prompt_ReAct
+from values import prompt_zero_shots, prompt_one_shots, prompt_few_shots, prompt_chain_of_thought, prompt_ReAct
 
 import os
 
@@ -54,7 +54,7 @@ class llama():
                 print(f'File {self.file_name} allready have answear for llama')
             else:
                 return question, outcome
-
+            
         else:
             outcome = self.result()
             return outcome

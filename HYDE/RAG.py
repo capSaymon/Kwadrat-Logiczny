@@ -5,6 +5,7 @@ from langchain_community.vectorstores import Chroma
 from langchain.prompts import ChatPromptTemplate
 from HyDE.llama_embeddings import LlamaEmbeddings
 from HyDE.hyde_values import CHROMA_PATH, PROMPT_SENTENCE
+from values import domain_prompt, domain_text
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.send_prompt import Prompt
@@ -24,6 +25,8 @@ class rag(LLM):
         else:
             task = self.sentence
 
+        domain = f'{domain_text}{self.create_domain(task)}\n---\n'
+
         llama_embeddings = LlamaEmbeddings(task)
         db = Chroma(persist_directory=CHROMA_PATH, embedding_function=llama_embeddings)
 
@@ -33,15 +36,18 @@ class rag(LLM):
             return
 
         context_text = "\n\n---\n\n".join([doc.page_content for doc, _ in results])
-        prompt_template = ChatPromptTemplate.from_template(PROMPT_SENTENCE)
+        prompt_template = ChatPromptTemplate.from_template(domain + PROMPT_SENTENCE)
         prompt = prompt_template.format(context=context_text, question=task)
 
         #LOOK FOR PROMPT
         #print(f'\n\n\n{prompt}\n\n\n\n')
 
-        outcome = Prompt(prompt).send()
+        outcome = Prompt(domain + prompt).send()
 
         if self.file_name:
             return task, outcome
         else:
             return outcome
+        
+    def create_domain(self, task):
+        return Prompt(f'{domain_prompt} \n\n {task}').send()

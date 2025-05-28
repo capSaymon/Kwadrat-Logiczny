@@ -1,7 +1,7 @@
 from schemat import LLM
 from collections import Counter
 from OPENAI.send_prompt import Prompt
-from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots, prompt_chain_of_thought, prompt_ReAct
+from values import prompt_few_shots, prompt_zero_shots, prompt_one_shots, prompt_chain_of_thought, prompt_ReAct, domain_prompt, domain_text
 
 class gpt(LLM):
     def __init__(self, *, file_name: str = None, sentence: str = None, prompt_technique: int = 2, name = 'OPENAI'):
@@ -15,28 +15,33 @@ class gpt(LLM):
         else:
             task = self.sentence
 
-        if self.prompt_technique == 0:
-            outcome = Prompt(f'{prompt_zero_shots} \n\n {task}').send()
-        elif self.prompt_technique == 1:
-            outcome = Prompt(f'{prompt_one_shots} \n\n {task}').send()
-        elif self.prompt_technique == 2:
-            outcome = Prompt(f'{prompt_few_shots} \n\n {task}').send()
-        elif self.prompt_technique == 3:
-            outcome = self.self_consistency(task)
-        elif self.prompt_technique == 4:
-            outcome = Prompt(f'{prompt_chain_of_thought} \n\n {task}').send()
-        elif self.prompt_technique == 5:
-            outcome = Prompt(f'{prompt_ReAct} \n\n {task}').send()
+        domain = f'{domain_text}{self.create_domain(task)}\n---\n'
 
+        if self.prompt_technique == 0:
+            outcome = Prompt(f'{domain + prompt_zero_shots} \n\n {task}').send()
+        elif self.prompt_technique == 1:
+            outcome = Prompt(f'{domain + prompt_one_shots} \n\n {task}').send()
+        elif self.prompt_technique == 2:
+            outcome = Prompt(f'{domain + prompt_few_shots} \n\n {task}').send()
+        elif self.prompt_technique == 3:
+            outcome = self.self_consistency(task, domain)
+        elif self.prompt_technique == 4:
+            outcome = Prompt(f'{domain + prompt_chain_of_thought} \n\n {task}').send()
+        elif self.prompt_technique == 5:
+            outcome = Prompt(f'{domain + prompt_ReAct} \n\n {task}').send()
+        
         if self.file_name:
             return task, outcome
         else:
             return outcome
-
-    def self_consistency(self, task):
+        
+    def create_domain(self, task):
+        return Prompt(f'{domain_prompt} \n\n {task}').send()
+        
+    def self_consistency(self, task, domain):
         prompt_results = []
-        for _ in range(5):
-            result = Prompt(f'{prompt_few_shots} \n\n {task}').send()
+        for _ in range(3):
+            result = Prompt(f'{domain + prompt_few_shots} \n\n {task}').send()
             prompt_results.append(result.strip())
         
         counts = Counter(prompt_results)

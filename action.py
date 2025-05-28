@@ -12,11 +12,9 @@ class Run():
 
     def result(self) -> str:
         index: int = 0
-        end: int = 20
+        end: int = 10
 
         while index < end:
-            outcome: str = None
-            
             if self.llm == 1:
                 outcome = self.run_GEMINI()
             elif self.llm == 2 and self.technique != 6:

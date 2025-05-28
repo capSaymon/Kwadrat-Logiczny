@@ -29,6 +29,7 @@ def main():
         while True:
             action = Run(sentence, choice_llm, choice_technique)
             outcome = action.result()
+
             print()
             print('-'*50,'\n')
             print(f'{outcome}\n')

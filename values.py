@@ -267,3 +267,40 @@ O: ...
 
 Nie dodawaj żadnych wyjaśnień, opisów ani komentarzy.
 """
+
+
+
+
+
+#search for domain prompt
+domain_prompt: str = """
+### Przykłady
+
+Przykład 1  
+Zdanie: Wszystkie ptaki mają skrzydła.  
+Odpowiedź: Zoologia
+
+Przykład 2  
+Zdanie: Wszystkie komputery są podłączone do Internetu.  
+Odpowiedź: Informatyka
+
+Przykład 3  
+Zdanie: Wszystkie książki w bibliotece są nowe.  
+Odpowiedź: Bibliotekoznawstwo
+
+### Zadanie
+
+Określ w jednym lub kilku słowach, najlepiej jednym, z jakiej dziedziny pochodzi poniższe zdanie.
+Podaj tylko nazwę dziedziny.
+"""
+
+
+#domain text for prompt
+domain_text: str = """
+### Dziedzina
+
+Kontekst odpowiedzi ogranicz do poniższej dziedziny.
+Unikaj wnioskowania spoza tego kontekstu.
+
+**Dziedzina**:
+"""

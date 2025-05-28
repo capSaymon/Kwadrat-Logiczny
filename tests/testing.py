@@ -2,6 +2,7 @@ import os
 import sys
 import csv
 import time
+import pandas as pd
 import statistics
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -10,6 +11,7 @@ from OPENAI.ML_openai import gpt
 from HyDE.RAG import rag
 from GEMINI.ML_gemini import gemini
 from check_sentences import SentenceChecker
+from fpdf import FPDF
 
 
 class Test():
@@ -89,6 +91,8 @@ class Test():
             print(line,data,line)
             self.save_data_to_csv(self.report_file_name, file_name[:-4], number_of_tests, format_success, relation_success, first_aproach_successful, average_time, min_time, max_time)
 
+        self.safe_data_to_pdf()
+
 
     def save(self, file_name: str, data: str, index: str, LLM: str =''):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -128,6 +132,61 @@ class Test():
 
             writer.writerow([ question, number_of_attempts, format_success, relation_success, first_aproach_successful, f"{average_time:.3f}", f"{min_time:.3f}", f"{max_time:.3f}" ])
 
+
+    def safe_data_to_pdf(self):
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
+        PDF_DIR = os.path.join(BASE_DIR, 'pdf')
+        os.makedirs(PDF_DIR, exist_ok=True)
+
+        if not os.path.exists(REPORTS_DIR):
+            raise FileNotFoundError('Folder reports not found')
+
+        all_files = sorted([f for f in os.listdir(REPORTS_DIR) if f.endswith('.csv')])
+        if not all_files:
+            print('Folder reports is empty')
+            return
+
+        metrics = ['Attempts', 'Format Success', 'Relation Success', 'First Aproach Successful']
+        for file in all_files:
+            full_path = os.path.join(REPORTS_DIR, file)
+
+            try:
+                df = pd.read_csv(full_path)
+            except Exception as e:
+                print(f'Error with load file {file}: {e}')
+                continue
+
+            if not all(metric in df.columns for metric in metrics):
+                print(f'File: {file} does not have enough columns')
+                continue
+
+            grouped = df.groupby('Question')
+            pdf = FPDF()
+            pdf.add_page()
+            pdf.set_font("Arial", size=10)
+            pdf.set_auto_page_break(auto=True, margin=15)
+
+            pdf.set_font("Arial", 'B', 20)
+            pdf.cell(0, 10, f'Raport: {file.removeprefix("report").removesuffix(".csv").replace("_", " ")}', ln=True)
+            pdf.ln(5)
+
+            for question, group in grouped:
+                pdf.set_font("Arial", 'B', size=13)
+                pdf.multi_cell(0, 10, f"{question}")
+                pdf.set_font("Arial", size=10)
+                for metric in metrics:
+                    if metric == 'First Aproach Successful':
+                        value = round(group[metric].mean())
+                        pdf.cell(0, 10, f"  Mean {metric}: {value}", ln=True)
+                    else:
+                        value = group[metric].sum()
+                        pdf.cell(0, 10, f"  Sum {metric}: {value}", ln=True)
+                pdf.ln(5)
+
+            pdf_name = file.replace(".csv", ".pdf")
+            pdf_path = os.path.join(PDF_DIR, pdf_name)
+            pdf.output(pdf_path)
 
 
     def run_LLAMA(self, base_name: str):

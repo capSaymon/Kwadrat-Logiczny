@@ -37,7 +37,8 @@ def main():
 
             choice = input('Reject or Accept (r/a): ')
             if choice == 'a':
-                print('Accept answear \n')
+                print('Accept answear and save\n')
+                action.save(outcome)
                 break
             elif choice == 'r':
                 print('Reject answear\n')

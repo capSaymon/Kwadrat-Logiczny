@@ -24,6 +24,8 @@ def click_technique(index):
     global technique
     technique = index
     print(f"Naciśnięto przycisk nr {technique}")
+    page_generate_sentences(container)
+    show_frame(page4)
 
 
 def show_frame(frame):
@@ -86,6 +88,22 @@ def page_choose_technique(container):
     page3.grid(row=0, column=0, sticky="nsew")
 
 
+def page_generate_sentences(container):
+    global page4
+    page4 = tk.Frame(container, width=600, height=550)
+    page4.grid_propagate(False)
+
+    center_frame = tk.Frame(page4)
+    center_frame.place(relx=0.5, rely=0.5, anchor="center")
+
+    data: str = f'{sentence_A} {llm} {technique}'
+
+    label1 = tk.Label(center_frame, text=data)
+    label1.pack(pady=10)
+
+    page4.grid(row=0, column=0, sticky="nsew")
+
+
 def main():
     global window, container
     window = tk.Tk()
@@ -105,7 +123,6 @@ def main():
 
     page_input_sentence(container)
     page_choose_llm(container)
-    page_choose_technique(container)
     show_frame(page1)
 
     window.mainloop()

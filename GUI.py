@@ -29,6 +29,12 @@ button_technique_style = {
     "relief": "flat",
 }
 
+text_style = {
+    "bg": color_main,
+    "fg": "white",
+    "font": ("Helvetica", 15, "bold"),
+}
+
 
 def save_sentence_A():
     global sentence_A
@@ -77,11 +83,11 @@ def page_input_sentence(container):
     center_frame = tk.Frame(page1, bg=color_main)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
-    label1 = tk.Label(center_frame, text="Enter a sentence A:", bg=color_main, fg="white")
+    label1 = tk.Label(center_frame, text="Enter a sentence A:", **text_style)
     label1.pack(pady=10)
 
-    text_box = tk.Entry(center_frame, width=30, bg=color_main, fg="white", insertbackground="white")
-    text_box.pack(pady=5)
+    text_box = tk.Entry(center_frame, width=40, insertbackground="white", **text_style)
+    text_box.pack(pady=20)
 
     button_next = tk.Button(center_frame, text="Next", command=save_sentence_A, **button_style)
     button_next.pack(pady=10)
@@ -139,7 +145,7 @@ def page_generate_sentences(container):
         label1.config(text=new_outcome)
 
     outcome = generate_sentences()
-    label1 = tk.Label(center_frame, text=outcome, bg=color_main, fg="white", wraplength=500, justify="left")
+    label1 = tk.Label(center_frame, text=outcome, wraplength=500, justify="center", **text_style)
     label1.pack(pady=10)
 
     button_save = tk.Button(center_frame, text="Save", command=lambda: save_result(outcome), **button_style)

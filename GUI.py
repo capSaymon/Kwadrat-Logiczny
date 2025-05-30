@@ -1,8 +1,11 @@
 import tkinter as tk
+from action import Run
+
 
 llm = None
 technique = None
 sentence_A = None
+
 
 def save_sentence_A():
     global sentence_A
@@ -26,6 +29,12 @@ def click_technique(index):
     print(f"Naciśnięto przycisk nr {technique}")
     page_generate_sentences(container)
     show_frame(page4)
+
+
+def generate_sentences() -> str:
+    action = Run('A: '+sentence_A, llm, technique)
+    outcome = action.result()
+    return outcome
 
 
 def show_frame(frame):
@@ -63,7 +72,7 @@ def page_choose_llm(container):
     list_llm: list[str] = ['gemini', 'llama', 'openai']
 
     for index, element in enumerate(list_llm):
-        button_next = tk.Button(center_frame, text=element, command=lambda index=index: click_llm(index))
+        button_next = tk.Button(center_frame, text=element, command=lambda index=index: click_llm(index+1))
         button_next.pack(pady=10)
 
     page2.grid(row=0, column=0, sticky="nsew")
@@ -98,7 +107,7 @@ def page_generate_sentences(container):
 
     data: str = f'{sentence_A} {llm} {technique}'
 
-    label1 = tk.Label(center_frame, text=data)
+    label1 = tk.Label(center_frame, text=generate_sentences())
     label1.pack(pady=10)
 
     page4.grid(row=0, column=0, sticky="nsew")

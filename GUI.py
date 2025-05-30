@@ -1,21 +1,34 @@
 import tkinter as tk
 
-llm = None 
+llm = None
+technique = None
+sentence_A = None
 
 def save_sentence_A():
     global sentence_A
     sentence_A = text_box.get()
     if sentence_A:
         show_frame(page2)
-        print("Zapisano do zmiennej:", sentence_A)
+        print("Zapisano do zmiennej: ", sentence_A)
+
 
 def click_llm(index):
     global llm
     llm = index
     print(f"Naciśnięto przycisk nr {llm}")
+    page_choose_technique(container)
+    show_frame(page3)
+
+
+def click_technique(index):
+    global technique
+    technique = index
+    print(f"Naciśnięto przycisk nr {technique}")
+
 
 def show_frame(frame):
     frame.tkraise()
+
 
 def page_input_sentence(container):
     global text_box, page1
@@ -36,6 +49,7 @@ def page_input_sentence(container):
 
     page1.grid(row=0, column=0, sticky="nsew")
 
+
 def page_choose_llm(container):
     global page2
     page2 = tk.Frame(container, width=600, height=550)
@@ -52,8 +66,28 @@ def page_choose_llm(container):
 
     page2.grid(row=0, column=0, sticky="nsew")
 
+
+def page_choose_technique(container):
+    global page3
+    page3 = tk.Frame(container, width=600, height=550)
+    page3.grid_propagate(False)
+
+    center_frame = tk.Frame(page3)
+    center_frame.place(relx=0.5, rely=0.5, anchor="center")
+
+    list_llm: list[str] = ['zero-shot', 'one-shot', 'few-shot', 'self-consistency', 'chain-of-thought', 'ReAct']
+    if llm == 1:
+        list_llm.append('HyDE')
+
+    for index, element in enumerate(list_llm):
+        button_next = tk.Button(center_frame, text=element, command=lambda index=index: click_technique(index))
+        button_next.pack(pady=10)
+
+    page3.grid(row=0, column=0, sticky="nsew")
+
+
 def main():
-    global window
+    global window, container
     window = tk.Tk()
     window.title("Kwadrat Logiczny")
 
@@ -71,9 +105,11 @@ def main():
 
     page_input_sentence(container)
     page_choose_llm(container)
+    page_choose_technique(container)
     show_frame(page1)
 
     window.mainloop()
+
 
 if __name__ == "__main__":
     main()

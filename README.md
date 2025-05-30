@@ -76,3 +76,5 @@ Model językowy dla języka polskiego:
 ```bash
 python -m spacy download pl_core_news_sm
 ```
+
+Należy jeszcze pobrać model osadzeń tekstowych [nomic-embed-text-v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5-GGUF) w formacie GGUF. Następnie trzeba podać ścieżkę do tego pliku w module **hyde_values.py**.

@@ -1,17 +1,23 @@
 import tkinter as tk
 
+llm = None 
 
 def save_sentence_A():
     global sentence_A
     sentence_A = text_box.get()
-    label2.config(text=sentence_A)
-    print("Zapisano do zmiennej:", sentence_A)
-    show_frame(page2)
+    if sentence_A:
+        show_frame(page2)
+        print("Zapisano do zmiennej:", sentence_A)
+
+def click_llm(index):
+    global llm
+    llm = index
+    print(f"Naciśnięto przycisk nr {llm}")
 
 def show_frame(frame):
     frame.tkraise()
 
-def page1_view(container):
+def page_input_sentence(container):
     global text_box, page1
     page1 = tk.Frame(container, width=600, height=550)
     page1.grid_propagate(False)
@@ -30,19 +36,19 @@ def page1_view(container):
 
     page1.grid(row=0, column=0, sticky="nsew")
 
-def page2_view(container):
-    global page2, label2
+def page_choose_llm(container):
+    global page2
     page2 = tk.Frame(container, width=600, height=550)
     page2.grid_propagate(False)
 
     center_frame = tk.Frame(page2)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
-    label2 = tk.Label(center_frame, text='')
-    label2.pack(pady=20)
+    list_llm: list[str] = ['gemini', 'llama', 'openai']
 
-    button_back = tk.Button(center_frame, text="Wróć", command=lambda: show_frame(page1))
-    button_back.pack()
+    for index, element in enumerate(list_llm):
+        button_next = tk.Button(center_frame, text=element, command=lambda index=index: click_llm(index))
+        button_next.pack(pady=10)
 
     page2.grid(row=0, column=0, sticky="nsew")
 
@@ -63,8 +69,8 @@ def main():
     container.grid_rowconfigure(0, weight=1)
     container.grid_columnconfigure(0, weight=1)
 
-    page1_view(container)
-    page2_view(container)
+    page_input_sentence(container)
+    page_choose_llm(container)
     show_frame(page1)
 
     window.mainloop()

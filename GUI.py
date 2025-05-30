@@ -12,13 +12,13 @@ def save_sentence_A():
     sentence_A = text_box.get()
     if sentence_A:
         show_frame(page2)
-        print("Zapisano do zmiennej: ", sentence_A)
+        print("Saved to variable: ", sentence_A)
 
 
 def click_llm(index):
     global llm
     llm = index
-    print(f"Naciśnięto przycisk nr {llm}")
+    print(f"Selected LLM: {llm}")
     page_choose_technique(container)
     show_frame(page3)
 
@@ -26,7 +26,7 @@ def click_llm(index):
 def click_technique(index):
     global technique
     technique = index
-    print(f"Naciśnięto przycisk nr {technique}")
+    print(f"Selected technique: {technique}")
     page_generate_sentences(container)
     show_frame(page4)
 
@@ -35,6 +35,11 @@ def generate_sentences() -> str:
     action = Run('A: '+sentence_A, llm, technique)
     outcome = action.result()
     return outcome
+
+def save_result(outcome):
+    action = Run()
+    print('Accept answear and save\n')
+    action.save(outcome)
 
 
 def show_frame(frame):
@@ -49,13 +54,13 @@ def page_input_sentence(container):
     center_frame = tk.Frame(page1)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
-    label1 = tk.Label(center_frame, text="Wpisz zdanie A:")
+    label1 = tk.Label(center_frame, text="Enter a sentence A:")
     label1.pack(pady=10)
 
     text_box = tk.Entry(center_frame, width=30)
     text_box.pack(pady=5)
 
-    button_next = tk.Button(center_frame, text="Dalej", command=save_sentence_A)
+    button_next = tk.Button(center_frame, text="Next", command=save_sentence_A)
     button_next.pack(pady=10)
 
     page1.grid(row=0, column=0, sticky="nsew")
@@ -87,7 +92,7 @@ def page_choose_technique(container):
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
     list_llm: list[str] = ['zero-shot', 'one-shot', 'few-shot', 'self-consistency', 'chain-of-thought', 'ReAct']
-    if llm == 1:
+    if llm == 2:
         list_llm.append('HyDE')
 
     for index, element in enumerate(list_llm):
@@ -98,25 +103,36 @@ def page_choose_technique(container):
 
 
 def page_generate_sentences(container):
-    global page4
+    global page4, label1
     page4 = tk.Frame(container, width=600, height=550)
     page4.grid_propagate(False)
 
     center_frame = tk.Frame(page4)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
-    data: str = f'{sentence_A} {llm} {technique}'
+    def update_outcome():
+        print('\nGenerate new outcome')
+        new_outcome = generate_sentences()
+        label1.config(text=new_outcome)
 
-    label1 = tk.Label(center_frame, text=generate_sentences())
+    outcome = generate_sentences()
+    label1 = tk.Label(center_frame, text=outcome)
     label1.pack(pady=10)
 
+    button_save = tk.Button(center_frame, text="Save", command=lambda: save_result(outcome))
+    button_save.pack(pady=10)
+
+    button_reject = tk.Button(center_frame, text="Reject", command=update_outcome)
+    button_reject.pack(pady=10)
+
     page4.grid(row=0, column=0, sticky="nsew")
+
 
 
 def main():
     global window, container
     window = tk.Tk()
-    window.title("Kwadrat Logiczny")
+    window.title("Logical Square")
 
     width = 600
     height = 550

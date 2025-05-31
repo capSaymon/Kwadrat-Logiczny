@@ -7,6 +7,7 @@ technique = None
 sentence_A = None
 
 color_main = '#303030'
+color_decorate = "#4B4B4B"
 color_button = "#1E688A"
 
 button_style = {
@@ -14,7 +15,7 @@ button_style = {
     "height": 2,
     "bg": color_button,
     "fg": "white",
-    "font": ("Helvetica", 12, "bold"),
+    "font": ("Helvetica", 14, "bold"),
     "bd": 0,
     "relief": "flat",
 }
@@ -33,6 +34,12 @@ text_style = {
     "bg": color_main,
     "fg": "white",
     "font": ("Helvetica", 15, "bold"),
+}
+
+text_input = {
+    "bg": color_decorate,
+    "fg": "white",
+    "font": ("Helvetica", 13, "bold"),
 }
 
 
@@ -86,13 +93,14 @@ def page_input_sentence(container):
     label1 = tk.Label(center_frame, text="Enter a sentence A:", **text_style)
     label1.pack(pady=10)
 
-    text_box = tk.Entry(center_frame, width=40, insertbackground="white", **text_style)
-    text_box.pack(pady=20)
+    text_box = tk.Entry(center_frame,  width=40, insertbackground="white", bd=0, relief="flat", **text_input)
+    text_box.pack(pady=10, ipady=10)
 
     button_next = tk.Button(center_frame, text="Next", command=save_sentence_A, **button_style)
-    button_next.pack(pady=10)
+    button_next.pack(pady=(50, 10))
 
     page1.grid(row=0, column=0, sticky="nsew")
+
 
 
 def page_choose_llm(container):
@@ -103,11 +111,14 @@ def page_choose_llm(container):
     center_frame = tk.Frame(page2, bg=color_main)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
+    label1 = tk.Label(center_frame, text="Select LLM", **text_style)
+    label1.grid(row=0, column=0, columnspan=3, pady=(0, 50))
+
     list_llm: list[str] = ['gemini', 'llama', 'openai']
 
     for index, element in enumerate(list_llm):
-        button_next = tk.Button(center_frame, text=element, command=lambda index=index: click_llm(index + 1), **button_style)
-        button_next.pack(pady=10)
+        button_llm = tk.Button(center_frame, text=element, command=lambda index=index: click_llm(index + 1), **button_style)
+        button_llm.grid(row=1, column=index, padx=10)
 
     page2.grid(row=0, column=0, sticky="nsew")
 
@@ -120,13 +131,21 @@ def page_choose_technique(container):
     center_frame = tk.Frame(page3, bg=color_main)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
+    label1 = tk.Label(center_frame, text="Select prompt technique", **text_style)
+    label1.grid(row=0, column=0, columnspan=3, pady=(0, 50))
+
     list_llm: list[str] = ['zero-shot', 'one-shot', 'few-shot', 'self-consistency', 'chain-of-thought', 'ReAct']
-    if llm == 2:
-        list_llm.append('HyDE')
 
     for index, element in enumerate(list_llm):
-        button_next = tk.Button(center_frame, text=element, command=lambda index=index: click_technique(index), **button_technique_style)
-        button_next.pack(pady=10)
+        row = index // 2 + 1
+        col = index % 2
+        button_technique = tk.Button(center_frame, text=element, command=lambda index=index: click_technique(index), **button_technique_style)
+        button_technique.grid(row=row, column=col, padx=10, pady=10)
+    
+    if llm == 2:
+        index_hyde = len(list_llm)
+        button_technique = tk.Button(center_frame, text="HyDE", command=lambda: click_technique(index_hyde), **button_technique_style)
+        button_technique.grid(row=row + 1, column=0, columnspan=2, pady=(10, 0))
 
     page3.grid(row=0, column=0, sticky="nsew")
 
@@ -145,14 +164,14 @@ def page_generate_sentences(container):
         label1.config(text=new_outcome)
 
     outcome = generate_sentences()
-    label1 = tk.Label(center_frame, text=outcome, wraplength=500, justify="center", **text_style)
-    label1.pack(pady=10)
+    label1 = tk.Label(center_frame, text=outcome, wraplength=500, justify='left', **text_style, background=color_decorate, padx=20, pady=20)
+    label1.grid(row=0, column=0, columnspan=2, pady=0)
 
     button_save = tk.Button(center_frame, text="Save", command=lambda: save_result(outcome), **button_style)
-    button_save.pack(pady=10)
+    button_save.grid(row=1, column=0, padx=30, pady=50)
 
     button_reject = tk.Button(center_frame, text="Reject", command=update_outcome, **button_style)
-    button_reject.pack(pady=10)
+    button_reject.grid(row=1, column=1, padx=30, pady=50)
 
     page4.grid(row=0, column=0, sticky="nsew")
 
@@ -163,8 +182,8 @@ def main():
     window = tk.Tk()
     window.title("Logical Square")
 
-    width = 600
-    height = 550
+    width = 700
+    height = 650
     x = (window.winfo_screenwidth() // 2) - (width // 2)
     y = (window.winfo_screenheight() // 2) - (height // 2)
     window.geometry(f"{width}x{height}+{x}+{y}")

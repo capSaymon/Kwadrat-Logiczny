@@ -1,54 +1,11 @@
-import tkinter as tk
+from decorations import color_main, color_decorate, color_input, text_enter, text_input, text_style, button_style, button_technique_style
 from action import Run
+import tkinter as tk
 
 
 llm = None
 technique = None
 sentence_A = None
-
-color_main = '#303030'
-color_decorate = "#4B4B4B"
-color_input = "#535353"
-color_button = "#1E688A"
-
-base_button_style = {
-    "bg": color_button,
-    "fg": "white",
-    "bd": 0,
-    "relief": "flat",
-    "font": ("Helvetica", 14, "bold"),
-}
-
-# Styl dla przycisków zwykłych
-button_style = {
-    **base_button_style,
-    "width": 10,
-    "height": 2,
-}
-
-# Styl dla przycisków technik
-button_technique_style = {
-    **base_button_style,
-    "font": ("Helvetica", 12, "bold"),
-    "width": 20,
-    "height": 2,
-}
-
-text_style = {
-    "bg": color_main,
-    "fg": "white",
-    "font": ("Helvetica", 15, "bold"),
-}
-
-text_enter = {
-    "fg": "white",
-    "font": ("Helvetica", 15, "bold"),
-}
-
-text_input = {
-    "fg": "white",
-    "font": ("Helvetica", 13, "bold"),
-}
 
 
 def save_sentence_A():

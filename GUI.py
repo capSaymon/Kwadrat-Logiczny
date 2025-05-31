@@ -8,26 +8,30 @@ sentence_A = None
 
 color_main = '#303030'
 color_decorate = "#4B4B4B"
+color_input = "#535353"
 color_button = "#1E688A"
 
-button_style = {
-    "width": 10,
-    "height": 2,
+base_button_style = {
     "bg": color_button,
     "fg": "white",
-    "font": ("Helvetica", 14, "bold"),
     "bd": 0,
     "relief": "flat",
+    "font": ("Helvetica", 14, "bold"),
 }
 
+# Styl dla przycisków zwykłych
+button_style = {
+    **base_button_style,
+    "width": 10,
+    "height": 2,
+}
+
+# Styl dla przycisków technik
 button_technique_style = {
+    **base_button_style,
+    "font": ("Helvetica", 12, "bold"),
     "width": 20,
     "height": 2,
-    "bg": color_button,
-    "fg": "white",
-    "font": ("Helvetica", 12, "bold"),
-    "bd": 0,
-    "relief": "flat",
 }
 
 text_style = {
@@ -36,8 +40,12 @@ text_style = {
     "font": ("Helvetica", 15, "bold"),
 }
 
+text_enter = {
+    "fg": "white",
+    "font": ("Helvetica", 15, "bold"),
+}
+
 text_input = {
-    "bg": color_decorate,
     "fg": "white",
     "font": ("Helvetica", 13, "bold"),
 }
@@ -87,19 +95,24 @@ def page_input_sentence(container):
     page1 = tk.Frame(container, width=600, height=550, bg=color_main)
     page1.grid_propagate(False)
 
-    center_frame = tk.Frame(page1, bg=color_main)
+    center_frame = tk.Frame(page1, bg=color_main, width=400, height=250)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
+    center_frame.pack_propagate(False)
 
-    label1 = tk.Label(center_frame, text="Enter a sentence A:", **text_style)
-    label1.pack(pady=10)
+    input_frame = tk.Frame(center_frame, bg=color_decorate)
+    input_frame.pack(pady=10, fill='x', expand=True)
 
-    text_box = tk.Entry(center_frame,  width=40, insertbackground="white", bd=0, relief="flat", **text_input)
-    text_box.pack(pady=10, ipady=10)
+    label1 = tk.Label(input_frame, text="Enter a sentence A:", bg=color_decorate, **text_enter)
+    label1.pack(pady=(10, 5))
+
+    text_box = tk.Entry(input_frame, width=40, insertbackground="white", bd=0, relief="flat", bg=color_input, **text_input)
+    text_box.pack(pady=(0, 10), ipady=10)
 
     button_next = tk.Button(center_frame, text="Next", command=save_sentence_A, **button_style)
-    button_next.pack(pady=(50, 10))
+    button_next.pack(pady=(30, 10))
 
     page1.grid(row=0, column=0, sticky="nsew")
+
 
 
 
@@ -158,6 +171,9 @@ def page_generate_sentences(container):
     center_frame = tk.Frame(page4, bg=color_main)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
+    label1 = tk.Label(center_frame, text="The rest of the sentences", **text_style)
+    label1.grid(row=0, column=0, columnspan=3, pady=(0, 30))
+
     def update_outcome():
         print('\nGenerate new outcome')
         new_outcome = generate_sentences()
@@ -165,13 +181,13 @@ def page_generate_sentences(container):
 
     outcome = generate_sentences()
     label1 = tk.Label(center_frame, text=outcome, wraplength=500, justify='left', **text_style, background=color_decorate, padx=20, pady=20)
-    label1.grid(row=0, column=0, columnspan=2, pady=0)
+    label1.grid(row=1, column=0, columnspan=2, pady=0)
 
     button_save = tk.Button(center_frame, text="Save", command=lambda: save_result(outcome), **button_style)
-    button_save.grid(row=1, column=0, padx=30, pady=50)
+    button_save.grid(row=2, column=0, padx=30, pady=50)
 
     button_reject = tk.Button(center_frame, text="Reject", command=update_outcome, **button_style)
-    button_reject.grid(row=1, column=1, padx=30, pady=50)
+    button_reject.grid(row=2, column=1, padx=30, pady=50)
 
     page4.grid(row=0, column=0, sticky="nsew")
 

@@ -1,19 +1,36 @@
 # Kwadrat-Logiczny
 
-Program wspomaga analizę logiczną poprzez generowanie zdań dla brakujących wierzchołków [kwadratu logicznego](https://pl.wikipedia.org/wiki/Kwadrat_logiczny). Wykorzystuje w tym celu technikę [few-shot prompting](https://www.promptingguide.ai/techniques/fewshot) z użyciem dużych modeli językowych (LLM).
+Program wspomaga analizę logiczną poprzez generowanie zdań dla brakujących wierzchołków [kwadratu logicznego](https://pl.wikipedia.org/wiki/Kwadrat_logiczny). Stosowane są rózne techniki promptowania do pracy z dużymi modelami językowymi (LLM).
 
 Opis działania
 ---
-Użytkownik wprowadza jedno zdanie, które stanowi punkt wyjściowy (lewy górny wierzchołek kwadratu). Na tej podstawie program formułuje prompt zawierający:
+Użytkownik wprowadza jedno zdanie (ręcznie lub poprzez plik .txt), które stanowi punkt wyjściowy – lewy górny wierzchołek kwadratu logicznego (zdanie typu A). Następnie wybierana jest technika promptowania..
 
-- schemat budowy wierzchołków kwadratu
+Na podstawie tego zdania program generuje odpowiedni prompt zawierający:
 
-- opis relacji logicznych między wierzchołkami kwadratu
+- Dziedzinę, z której pochodzi zdanie
 
-- dwa przykłady zdań
+- Schemat konstrukcyjny czterech wierzchołków kwadratu
 
-Model językowy generuje brakujące wierzchołki kwadratu.
+- Opis relacji logicznych między wierzchołkami (np. sprzeczność, przeciwieństwo, kontrarność, kontradyktoryczność)
 
+Wybrany model językowy generuje brakujące wierzchołki (E, I, O). W zależności od zastosowanej techniki promptowania, struktura promptu może się różnić, ale powyższe elementy są wspólne dla wszystkich wariantów.
+
+Techniki promptingu
+---
+Wykorzystuje nowoczesne techniki promptowania, takie jak:
+
+- [zero-shot](https://www.promptingguide.ai/techniques/zeroshot)
+  
+- [one-shot](https://www.ibm.com/think/topics/one-shot-prompting)
+  
+- [few-shot](https://www.promptingguide.ai/techniques/fewshot)
+  
+- [chain-of-thought](https://www.promptingguide.ai/techniques/cot)
+  
+- [ReAct](https://www.promptingguide.ai/techniques/react)
+  
+- [HyDE](https://medium.com/data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) + [RAG](https://www.promptingguide.ai/techniques/rag) 
 
 Technologia
 ---
@@ -23,6 +40,8 @@ Technologia
 ***Środowisko LLM:***
 - [Ollama](https://ollama.com/)
 
+- [Gemini](https://gemini.google.com/?hl=pl)
+
 - [OpenAI](https://openai.com/)
 
 
@@ -30,16 +49,32 @@ Technologia
 
 - [llama3:1b](https://www.llama.com/llama-downloads/)
 
-- [lama3:3b](https://www.llama.com/llama-downloads/)
+- [gemini-1.5-flash](https://ai.google.dev/competition/projects/multimodal-gemini-15-flash-api?hl=pl)
 
 - [gpt-3.5-turbo](https://platform.openai.com/docs/models)
 
-***RAG***: Program może korzystać z techniki retrieval-augmented generation (RAG), która polega na wyszukiwaniu odpowiednich informacji w zbiorze danych przed generowaniem odpowiedzi. Wykorzystuje to w kontekście generowania brakujących wierzchołków kwadratu logicznego.
 
-***Hyde***: Używana jest również technika Hyde, pozwalająca na ukrywanie złożonych detali implementacyjnych w celu uproszczenia interfejsu użytkownika i umożliwienia bardziej intuicyjnej interakcji z systemem.
-
-
-LLM
+Konfiguracja i pliki
 ---
-W projekcie wykorzystywane są środowiska Ollama oraz OpenAI. Z OpenAI można korzystać, dodając swój klucz API w pliku **.env**, oraz odkomentowując dekorator, który umożliwia integrację z OpenAI. Domyślnie ustawione jest środowisko Llama. W plikach question przechowywane jest zdanie A, a wyniki promptu z danego modelu LLM można zapisać w plikach wynikowych.
+- Klucze API dla OpenAI i Gemini należy dodać do pliku .env.
 
+- Zdania wejściowe (A) zapisuje się w plikach tekstowych w folderze questions/.
+
+- Wyniki działania modeli można zapisać w folderze results/.
+
+Instalacja zależności
+---
+Instalacja bibliotek z LLM:
+```bash
+pip install ollama llama-cpp-python google-genai openai
+```
+Reszta:
+```bash
+pip install python-dotenv langchain langchain-community chromadb pandas matplotlib numpy fpdf spacy
+```
+Model językowy dla języka polskiego:
+```bash
+python -m spacy download pl_core_news_sm
+```
+
+Należy jeszcze pobrać model osadzeń tekstowych [nomic-embed-text-v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5-GGUF) w formacie GGUF. Następnie trzeba podać ścieżkę do tego pliku w module **hyde_values.py**.

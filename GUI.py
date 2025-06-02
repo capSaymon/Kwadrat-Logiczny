@@ -121,32 +121,38 @@ def page_choose_technique(container):
 
 
 def page_generate_sentences(container):
-    global page4, label1
+    global page4
     page4 = tk.Frame(container, width=600, height=550, bg=color_main)
     page4.grid_propagate(False)
 
     center_frame = tk.Frame(page4, bg=color_main)
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
-    label1 = tk.Label(center_frame, text="The rest of the sentences", **text_style)
-    label1.grid(row=0, column=0, columnspan=3, pady=(0, 30))
+    outcome_var = tk.StringVar()
+    outcome_var.set(generate_sentences())
+
+    label_title = tk.Label(center_frame, text="The rest of the sentences", **text_style)
+    label_title.grid(row=0, column=0, columnspan=3, pady=(0, 30))
+
+    label1 = tk.Label(center_frame, textvariable=outcome_var, wraplength=500, justify='left',
+                      **text_style, background=color_decorate, padx=20, pady=20)
+    label1.grid(row=1, column=0, columnspan=2, pady=0)
 
     def update_outcome():
         print('\nGenerate new outcome')
-        new_outcome = generate_sentences()
-        label1.config(text=new_outcome)
+        outcome_var.set(generate_sentences())
 
-    outcome = generate_sentences()
-    label1 = tk.Label(center_frame, text=outcome, wraplength=500, justify='left', **text_style, background=color_decorate, padx=20, pady=20)
-    label1.grid(row=1, column=0, columnspan=2, pady=0)
+    def save_current_result():
+        save_result(outcome_var.get())
 
-    button_save = tk.Button(center_frame, text="Save", command=lambda: save_result(outcome), **button_style)
+    button_save = tk.Button(center_frame, text="Save", command=save_current_result, **button_style)
     button_save.grid(row=2, column=0, padx=30, pady=50)
 
     button_reject = tk.Button(center_frame, text="Reject", command=update_outcome, **button_style)
     button_reject.grid(row=2, column=1, padx=30, pady=50)
 
     page4.grid(row=0, column=0, sticky="nsew")
+
 
 
 

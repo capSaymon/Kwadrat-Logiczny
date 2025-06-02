@@ -29,6 +29,9 @@ class Run():
             else:
                 print("Invalid combination of LLM and technique.")
 
+            if len(outcome.splitlines()) > 5:
+                continue
+
             index = index + 1
             if self.check_outcome(outcome):
                 break

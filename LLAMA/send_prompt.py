@@ -6,7 +6,7 @@ class Prompt():
         self.prompt = prompt
 
     def send(self) -> str:
-        model: str = 'llama3.2:1b'
+        model: str = 'llama3.2:3b'
         response: ChatResponse = chat(model, messages=[{
             'role': 'user',
             'content': self.prompt,

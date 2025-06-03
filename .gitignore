@@ -1,9 +1,6 @@
 __pycache__/
 *.pyc 
 *.env
-chroma_*
-chroma
-/chroma/
 result_test_*
 result_test
 /result_test/

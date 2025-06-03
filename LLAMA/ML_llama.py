@@ -16,6 +16,7 @@ class llama(LLM):
             task = self.sentence
 
         domain = f'{domain_text}{self.create_domain(task)}\n---\n'
+        #print('\n\n\n', task , '\n\n' ,domain, '\n\n\n')
 
         if self.prompt_technique == 0:
             outcome = Prompt(f'{domain + prompt_zero_shots} \n\n {task}').send()

@@ -43,8 +43,8 @@ class SentenceChecker():
         return self.lemmatize(text.strip().lower().rstrip("."))
 
     def contradicts_a_o(self, sentence_a: str, sentence_o: str) -> bool:
-        pattern_a = r"Wszystkie (.+?)(?:\.|$)"
-        pattern_o = r"Niektóre (.+?) nie (.+?)(?:\.|$)"
+        pattern_a = r"Wszystkie (.+?)"
+        pattern_o = r"Niektóre (.+?) nie (.+?)"
 
         match_a = re.match(pattern_a, sentence_a.strip())
         match_o = re.match(pattern_o, sentence_o.strip())
@@ -60,14 +60,14 @@ class SentenceChecker():
 
 
     def contradicts_i_e(self, sentence_i: str, sentence_e: str) -> bool:
-        pattern_i = r"Niektóre (.+?)(?:\.|$)"
-        pattern_e = r"Żaden (.+?) nie (.+?)(?:\.|$)"
+        pattern_i = r"Niektóre (.+?)"
+        pattern_e = r"Żaden (.+?) nie (.+?)"
 
         match_i = re.match(pattern_i, sentence_i.strip())
         match_e = re.match(pattern_e, sentence_e.strip())
 
         if match_e is None:
-            pattern_e = r"Żadne (.+?) nie (.+?)(?:\.|$)"
+            pattern_e = r"Żadna (.+?) nie (.+?)"
             match_e = re.match(pattern_e, sentence_e.strip())
 
         if match_i and match_e:

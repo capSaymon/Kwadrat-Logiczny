@@ -47,7 +47,7 @@ Technologia
 
 ***Modele LLM:***
 
-- [llama3:1b](https://www.llama.com/llama-downloads/)
+- [llama3:3b](https://www.llama.com/llama-downloads/)
 
 - [gemini-1.5-flash](https://ai.google.dev/competition/projects/multimodal-gemini-15-flash-api?hl=pl)
 

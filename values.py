@@ -277,21 +277,39 @@ domain_prompt: str = """
 ### Przykłady
 
 Przykład 1  
-Zdanie: Wszystkie ptaki mają skrzydła.  
-Odpowiedź: Zoologia
+Zdanie A: Wszystkie ptaki mają skrzydła.  
+Zoologia
 
 Przykład 2  
-Zdanie: Wszystkie komputery są podłączone do Internetu.  
-Odpowiedź: Informatyka
+Zdanie A: Wszystkie komputery są podłączone do Internetu.  
+Informatyka
 
 Przykład 3  
-Zdanie: Wszystkie książki w bibliotece są nowe.  
-Odpowiedź: Bibliotekoznawstwo
+Zdanie A: Wszystkie reakcje spalania wydzielają ciepło.  
+Chemia
+
+Przykład 4  
+Zdanie A: Każdy obywatel ma prawo do obrony sądowej.  
+Prawo
+
+Przykład 5  
+Zdanie A: Wszystkie planety Układu Słonecznego krążą wokół Słońca.  
+Astronomia
+
+Przykład 6  
+Zdanie A: Wszystkie układy współrzędnych można przekształcać liniowo.  
+Matematyka
+
+Przykład 7  
+Zdanie A: Każdy pacjent powinien mieć dostęp do opieki zdrowotnej.  
+Medycyna
 
 ### Zadanie
 
-Określ w jednym lub kilku słowach, najlepiej jednym, z jakiej dziedziny pochodzi poniższe zdanie.
-Podaj tylko nazwę dziedziny.
+Na podstawie poniższego zdania A określ, z jakiej dziedziny wiedzy ono pochodzi.  
+Odpowiedz tylko nazwą dziedziny, najlepiej jednym słowem.  
+Nie dodawaj żadnych wyjaśnień ani komentarzy.
+
 """
 
 

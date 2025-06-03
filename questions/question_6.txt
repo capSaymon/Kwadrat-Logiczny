@@ -1,2 +1,2 @@
 Question:
-Zdanie A: Wszystkie algorytmy wykonują operacje.
+Zdanie A: Wszystkie samochody mają silnik.

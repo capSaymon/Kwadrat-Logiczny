@@ -1,0 +1,13 @@
+Question,Attempts,Format Success,Relation Success,First Aproach Successful,Average Time,Min Time,Max Time
+question_1,1,1,1,1,1.603,1.603,1.603
+question_2,1,1,1,1,1.523,1.523,1.523
+question_3,1,1,1,1,1.417,1.417,1.417
+question_1,1,1,1,1,1.603,1.603,1.603
+question_2,1,1,1,1,1.418,1.418,1.418
+question_3,1,1,1,1,1.468,1.468,1.468
+question_1,10,10,10,1,1.501,1.411,1.597
+question_2,10,10,10,1,1.465,1.381,1.609
+question_3,10,10,10,1,1.541,1.388,1.669
+question_3,8,8,8,1,1.399,1.361,1.442
+question_1,8,8,8,1,1.589,1.527,1.647
+question_2,8,8,8,1,1.405,1.346,1.474

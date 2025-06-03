@@ -1,2 +1,2 @@
 Question:
-Zdanie A: Wszystkie róże są roślinami.
+Zdanie A: Wszystkie bazy danych przechowują dane.

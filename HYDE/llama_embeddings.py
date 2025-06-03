@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from LLAMA.send_prompt import Prompt
 
 class LlamaEmbeddings(Embeddings):
-    def __init__(self, task: str ="", model_path: str = MODEL_PATH):
+    def __init__(self, task: str =""):
         self.llm = Llama(model_path=MODEL_PATH, embedding=True)
         self.task = task
 
